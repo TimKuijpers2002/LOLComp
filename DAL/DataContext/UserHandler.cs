@@ -2,6 +2,7 @@
 using Interfaces.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace DAL.DataContext
@@ -19,23 +20,74 @@ namespace DAL.DataContext
         {
             using (_dbCon.Open())
             {
-                string query = "INSERT INTO User (UserID, Name, Email, Password) VALUES (@UserID, @Name, @Email, @Password);";
+                string query = "INSERT INTO User (Name, Email, Password) VALUES (@Name, @Email, @Password);";
+                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                {
+                    command.Parameters.AddWithValue("@Name", U1.Name);
+                    command.Parameters.AddWithValue("@Email", U1.Email);
+                    command.Parameters.AddWithValue("@Password", U1.Password);
+
+                    command.ExecuteNonQuery();
+                }
             }
         }
 
         public void DeleteUser(int UserID)
         {
-            throw new NotImplementedException();
+            using (_dbCon.Open())
+            {
+                string query = "DELETE FROM User WHERE UserID=@UserID";
+                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    _dbCon.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<UserDTO> GetUser()
         {
-            throw new NotImplementedException();
+            var users = new List<UserDTO>();
+            using (_dbCon.Open())
+            {
+                string query = "SELECT * FROM [dbi431200].[dbo].[User]";
+                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                {
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        UserDTO userDTO = new UserDTO
+                        {
+                            UserID = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Email = reader.GetString(2),
+                            Password = reader.GetString(3),
+
+                        };
+
+                        users.Add(userDTO);
+                    }
+                }
+            }
+            return users;
         }
 
         public void UpdateUser(UserDTO U1)
         {
-            throw new NotImplementedException();
+            using (_dbCon.Open())
+            {
+                string query = "UPDATE User Set Name = @Name, Email = @Email, Password = @Password WHERE UserID = @UserID;";
+                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", U1.UserID);
+                    command.Parameters.AddWithValue("@Name", U1.Name);
+                    command.Parameters.AddWithValue("@Email", U1.Email);
+                    command.Parameters.AddWithValue("@Password", U1.Password);
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
