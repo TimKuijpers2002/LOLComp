@@ -46,7 +46,7 @@ namespace DAL.DataContext
             }
         }
 
-        public List<UserDTO> GetUser()
+        public List<UserDTO> GetUsers()
         {
             var users = new List<UserDTO>();
             using (_dbCon.Open())

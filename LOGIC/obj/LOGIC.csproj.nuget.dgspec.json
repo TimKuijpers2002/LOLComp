@@ -4,14 +4,154 @@
     "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOGIC\\LOGIC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOGIC\\LOGIC.csproj": {
+    "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL Factory\\DAL Factory.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOGIC\\LOGIC.csproj",
-        "projectName": "LOGIC",
-        "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOGIC\\LOGIC.csproj",
+        "projectUniqueName": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL Factory\\DAL Factory.csproj",
+        "projectName": "DAL Factory",
+        "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL Factory\\DAL Factory.csproj",
         "packagesPath": "C:\\Users\\TimKu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOGIC\\obj\\",
+        "outputPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL Factory\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\TimKu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL\\DAL.csproj"
+              },
+              "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\Interfaces\\Interfaces.csproj": {
+                "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\Interfaces\\Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL\\DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL\\DAL.csproj",
+        "projectName": "DAL",
+        "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\TimKu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\TimKu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\Interfaces\\Interfaces.csproj": {
+                "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\Interfaces\\Interfaces.csproj"
+              },
+              "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOLComp\\LOLComp.csproj": {
+                "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOLComp\\LOLComp.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj",
+        "projectName": "DTO",
+        "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj",
+        "packagesPath": "C:\\Users\\TimKu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -53,6 +193,194 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\Interfaces\\Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\Interfaces\\Interfaces.csproj",
+        "projectName": "Interfaces",
+        "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\Interfaces\\Interfaces.csproj",
+        "packagesPath": "C:\\Users\\TimKu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\TimKu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOGIC\\LOGIC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOGIC\\LOGIC.csproj",
+        "projectName": "LOGIC",
+        "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOGIC\\LOGIC.csproj",
+        "packagesPath": "C:\\Users\\TimKu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOGIC\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\TimKu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL Factory\\DAL Factory.csproj": {
+                "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL Factory\\DAL Factory.csproj"
+              },
+              "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOLComp\\LOLComp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOLComp\\LOLComp.csproj",
+        "projectName": "LOLComp",
+        "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOLComp\\LOLComp.csproj",
+        "packagesPath": "C:\\Users\\TimKu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOLComp\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\TimKu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

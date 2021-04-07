@@ -44,7 +44,7 @@ namespace DAL.DataContext
             }
         }
 
-        public List<GroupDTO> GetGroup()
+        public List<GroupDTO> GetGroups()
         {
             var groups = new List<GroupDTO>();
             using (_dbCon.Open())
@@ -81,6 +81,31 @@ namespace DAL.DataContext
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        public List<GroupDTO> GetGroupsWithUserID(int userID)
+        {
+            var groups = new List<GroupDTO>();
+            using (_dbCon.Open())
+            {
+                string query = "SELECT * FROM Group WHERE GroupID = ( SELECT GroupID FROM User-Group WHERE UserID = @UserID)";
+                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", userID);
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        GroupDTO groupDTO = new GroupDTO
+                        {
+                            GroupID = reader.GetInt32(0),
+                            Name = reader.GetString(1)
+                        };
+
+                        groups.Add(groupDTO);
+                    }
+                }
+            }
+            return groups;
         }
     }
 }

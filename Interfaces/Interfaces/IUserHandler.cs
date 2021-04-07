@@ -8,7 +8,7 @@ namespace Interfaces.Interfaces
     public interface IUserHandler
     {
         void CreateUser(UserDTO U1);
-        List<UserDTO> GetUser();
+        List<UserDTO> GetUsers();
         void UpdateUser(UserDTO U1);
         void DeleteUser(int UserID);
     }

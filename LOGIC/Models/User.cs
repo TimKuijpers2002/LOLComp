@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAL_Factory;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -19,16 +21,18 @@ namespace LOGIC.Models
             Password = password;
         }
 
-        public void DeleteUser(int userID)
-        {
-
-        }
-
         public void UpdateUser(User user)
         {
-            //UserDTO _user = new UserDTO;
+            var tempID = 0;
+            UserDTO UpdatedUser = new UserDTO()
+            {
+                UserID = tempID,
+                Name = user.Name,
+                Email = user.Email,
+                Password = user.Password
+            };
 
-
+            Factory.userConnectionHandler.UpdateUser(UpdatedUser);
         }
     }
 }
