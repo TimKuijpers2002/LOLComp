@@ -15,9 +15,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO's\\DTO.csproj",
-      "projectName": "DTO",
-      "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO's\\DTO.csproj",
+      "projectUniqueName": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO's\\DTO's.csproj",
+      "projectName": "DTO's",
+      "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO's\\DTO's.csproj",
       "packagesPath": "C:\\Users\\TimKu\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO's\\obj\\",
       "projectStyle": "PackageReference",
