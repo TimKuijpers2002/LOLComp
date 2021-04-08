@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "bYK967NFSHVOoxvMgr5fq7OZ5XBPINHDIKfRpmozhoPH584Ly7CXGZfaE4/0iLVAl7guP9XvTD5I12DxHjiBxA==",
-  "success": false,
+  "dgSpecHash": "BHlntkXE39cJB7+fXOuAZYmS/bzL+9tYNjd+wlYZVbo0PPZEiaWuX/qtpZnZTV5j5gkmxuCvbOH2+D3SMqLKeg==",
+  "success": true,
   "projectFilePath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DAL Factory\\DAL Factory.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
@@ -14,15 +14,5 @@
     "C:\\Users\\TimKu\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\TimKu\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

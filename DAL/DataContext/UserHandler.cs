@@ -51,7 +51,7 @@ namespace DAL.DataContext
             var users = new List<UserDTO>();
             using (_dbCon.Open())
             {
-                string query = "SELECT * FROM [dbi431200].[dbo].[User]";
+                string query = "SELECT * FROM [dbi431200_LOLComp].[dbo].[User]";
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
                     var reader = command.ExecuteReader();

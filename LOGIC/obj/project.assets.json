@@ -166,11 +166,21 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTO.dll": {}
+        }
+      },
       "Interfaces/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj": "1.0.0"
+          "DTO": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Interfaces.dll": {}
@@ -515,6 +525,11 @@
       "path": "../DAL Factory/DAL Factory.csproj",
       "msbuildProject": "../DAL Factory/DAL Factory.csproj"
     },
+    "DTO/1.0.0": {
+      "type": "project",
+      "path": "../DTO/DTO.csproj",
+      "msbuildProject": "../DTO/DTO.csproj"
+    },
     "Interfaces/1.0.0": {
       "type": "project",
       "path": "../Interfaces/Interfaces.csproj",
@@ -528,8 +543,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj",
-      "DAL Factory >= 1.0.0"
+      "DAL Factory >= 1.0.0",
+      "DTO >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -603,16 +618,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }
