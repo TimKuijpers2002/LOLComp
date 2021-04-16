@@ -136,7 +136,6 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Interfaces": "1.0.0",
-          "LOLComp": "1.0.0",
           "System.Data.SqlClient": "4.8.2"
         },
         "compile": {
@@ -171,19 +170,6 @@
         "runtime": {
           "bin/placeholder/Interfaces.dll": {}
         }
-      },
-      "LOLComp/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/LOLComp.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LOLComp.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       }
     }
   },
@@ -512,11 +498,6 @@
       "type": "project",
       "path": "../Interfaces/Interfaces.csproj",
       "msbuildProject": "../Interfaces/Interfaces.csproj"
-    },
-    "LOLComp/1.0.0": {
-      "type": "project",
-      "path": "../LOLComp/LOLComp.csproj",
-      "msbuildProject": "../LOLComp/LOLComp.csproj"
     }
   },
   "projectFileDependencyGroups": {

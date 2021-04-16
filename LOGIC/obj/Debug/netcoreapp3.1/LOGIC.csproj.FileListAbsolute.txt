@@ -1,0 +1,18 @@
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\LOGIC.deps.json
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\LOGIC.dll
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\LOGIC.pdb
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\DAL Factory.dll
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\Interfaces.dll
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\DAL Factory.pdb
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\Interfaces.pdb
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csprojAssemblyReference.cache
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.AssemblyInfoInputs.cache
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.AssemblyInfo.cs
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.CoreCompileInputs.cache
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.CopyComplete
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.dll
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.pdb

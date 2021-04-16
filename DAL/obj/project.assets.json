@@ -153,19 +153,6 @@
         "runtime": {
           "bin/placeholder/Interfaces.dll": {}
         }
-      },
-      "LOLComp/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/LOLComp.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LOLComp.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       }
     }
   },
@@ -489,17 +476,11 @@
       "type": "project",
       "path": "../Interfaces/Interfaces.csproj",
       "msbuildProject": "../Interfaces/Interfaces.csproj"
-    },
-    "LOLComp/1.0.0": {
-      "type": "project",
-      "path": "../LOLComp/LOLComp.csproj",
-      "msbuildProject": "../LOLComp/LOLComp.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Interfaces >= 1.0.0",
-      "LOLComp >= 1.0.0",
       "System.Data.SqlClient >= 4.8.2"
     ]
   },
@@ -538,9 +519,6 @@
           "projectReferences": {
             "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\Interfaces\\Interfaces.csproj": {
               "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\Interfaces\\Interfaces.csproj"
-            },
-            "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOLComp\\LOLComp.csproj": {
-              "projectPath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOLComp\\LOLComp.csproj"
             }
           }
         }
@@ -570,9 +548,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

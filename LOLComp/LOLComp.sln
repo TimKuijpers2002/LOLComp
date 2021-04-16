@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOLComp", "LOLComp.csproj", "{43EDBAC2-85A5-4925-8B6C-4CD1923EBB45}"
+	ProjectSection(ProjectDependencies) = postProject
+		{46C25A41-8920-472C-8DA1-19596B8B42A9} = {46C25A41-8920-472C-8DA1-19596B8B42A9}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "..\DAL\DAL.csproj", "{823F4687-F33D-4976-99A5-23C6ADD7A6FD}"
 EndProject
@@ -13,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOGIC", "..\LOGIC\LOGIC.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "..\Interfaces\Interfaces.csproj", "{82C98C15-C243-4540-9CA3-F00A3DA0BAEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "..\DTO\DTO.csproj", "{2EAFBC65-B2C7-40F0-BC37-49EDF109BECC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "..\DTO\DTO.csproj", "{2EAFBC65-B2C7-40F0-BC37-49EDF109BECC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
