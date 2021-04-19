@@ -1,5 +1,6 @@
 ﻿using DAL_Factory;
 using DTO;
+using LOGIC.ModelConverters;
 using LOGIC.Models;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,18 @@ namespace LOGIC.Collections
 {
     public class GroupCollection
     {
+        private DTOAndLOGIC Converter { get; set; }
         private UserCollection userCollection;
         private List<Group> groups;
 
+        public GroupCollection()
+        {
+            Converter = new DTOAndLOGIC();
+        }
         public void CreateGroup(Group group)
         {
-            var tempID = 0;
-            GroupDTO NewGroup = new GroupDTO()
-            {
-                GroupID = tempID,
-                Name = group.Name
-            };
-
-            Factory.groupConnectionHandler.CreateGroup(NewGroup);
+            //FIX het tempID in controller nog!
+            Factory.groupConnectionHandler.CreateGroup(Converter.ConvertToGroupDTO(group));
         }
 
         public List<Group> GetGroups()
@@ -31,7 +31,7 @@ namespace LOGIC.Collections
             groups = new List<Group>();
             foreach (var groupDTO in groupDTOs)
             {
-                groups.Add(new Group(groupDTO.GroupID, groupDTO.Name));
+                groups.Add(Converter.ConvertToGroup(groupDTO));
             }
             return groups;
         }
@@ -42,7 +42,7 @@ namespace LOGIC.Collections
             groups = new List<Group>();
             foreach (var groupDTO in groupDTOs)
             {
-                groups.Add(new Group(groupDTO.GroupID, groupDTO.Name));
+                groups.Add(Converter.ConvertToGroup(groupDTO));
             }
             return groups;
         }

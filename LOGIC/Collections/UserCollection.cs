@@ -5,25 +5,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using LOGIC.ModelConverters;
 namespace LOGIC.Collections
 {
     public class UserCollection
     {
-        private List<User> users;
+        private DTOAndLOGIC Converter { get; set; }
+        private List<User> users { get; set; }
 
+        public UserCollection()
+        {
+            Converter = new DTOAndLOGIC();
+        }
         public void CreateUser(User user)
         {
-            var tempID = 0;
-            UserDTO NewUser = new UserDTO()
-            {
-                UserID = tempID,
-                Name = user.Name,
-                Email = user.Email,
-                Password = user.Password
-            };
-
-            Factory.userConnectionHandler.CreateUser(NewUser);
+            //FIX het tempID in controller nog!
+            Factory.userConnectionHandler.CreateUser(Converter.ConvertToUserDTO(user));
         }
 
         public List<User> GetUsers()
@@ -32,7 +29,7 @@ namespace LOGIC.Collections
             users = new List<User>();
             foreach(var userDTO in userDTOs)
             {
-                users.Add(new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password));
+                users.Add(Converter.ConvertToUser(userDTO));
             }
             return users;
         }
@@ -47,10 +44,10 @@ namespace LOGIC.Collections
         public User GetUserByEmail(string email)
         {
             users = new List<User>();
-            var userDTOs = GetUsers();
+            var userDTOs = Factory.userConnectionHandler.GetUserWithEmail(email);
             foreach (var userDTO in userDTOs)
             {
-                users.Add(new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password));
+                users.Add(Converter.ConvertToUser(userDTO));
             }
             return users.First();
         }
@@ -61,7 +58,7 @@ namespace LOGIC.Collections
             var userDTOs = Factory.userConnectionHandler.GetUserWithEmailAndPassword(email, password);
             foreach (var userDTO in userDTOs)
             {
-                users.Add(new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password));
+                users.Add(Converter.ConvertToUser(userDTO));
             }
             return users.First();
         }

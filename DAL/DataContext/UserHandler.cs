@@ -118,5 +118,33 @@ namespace DAL.DataContext
             }
             return users;
         }
+
+        public List<UserDTO> GetUserWithEmail(string email)
+        {
+            var users = new List<UserDTO>();
+            using (_dbCon.Open())
+            {
+                string query = "SELECT * FROM [dbi431200_LOLComp].[dbo].[User] WHERE Email = @Email";
+                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        UserDTO userDTO = new UserDTO
+                        {
+                            UserID = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Email = reader.GetString(2),
+                            Password = reader.GetString(3),
+
+                        };
+
+                        users.Add(userDTO);
+                    }
+                }
+            }
+            return users;
+        }
     }
 }

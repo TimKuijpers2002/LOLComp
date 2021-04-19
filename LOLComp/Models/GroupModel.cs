@@ -8,7 +8,6 @@ namespace LOLComp.Models
     public class GroupModel
     {
         public int GroupID { get; set; }
-
         public string GroupName { get; set; }
     }
 }
