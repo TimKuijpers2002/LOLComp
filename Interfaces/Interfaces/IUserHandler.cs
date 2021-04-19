@@ -11,5 +11,6 @@ namespace Interfaces.Interfaces
         List<UserDTO> GetUsers();
         void UpdateUser(UserDTO U1);
         void DeleteUser(int UserID);
+        List<UserDTO> GetUserWithEmailAndPassword(string email, string password);
     }
 }

@@ -25,8 +25,6 @@ namespace LOLComp.Controllers
 
         public IActionResult Groups(int userID)
         {
-            //test purpose
-            userID = 1
             groupModels = new List<GroupModel>();
             var Groups = groupCollection.GetGroupsWithUserID(userID);
             foreach(var group in Groups)

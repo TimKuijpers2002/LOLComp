@@ -89,5 +89,34 @@ namespace DAL.DataContext
                 }
             }
         }
+
+        public List<UserDTO> GetUserWithEmailAndPassword(string email, string password)
+        {
+            var users = new List<UserDTO>();
+            using (_dbCon.Open())
+            {
+                string query = "SELECT * FROM [dbi431200_LOLComp].[dbo].[User] WHERE Email = @Email AND Password = @Password;";
+                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@Password", password);
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        UserDTO userDTO = new UserDTO
+                        {
+                            UserID = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Email = reader.GetString(2),
+                            Password = reader.GetString(3),
+
+                        };
+
+                        users.Add(userDTO);
+                    }
+                }
+            }
+            return users;
+        }
     }
 }

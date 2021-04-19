@@ -46,8 +46,24 @@ namespace LOGIC.Collections
 
         public User GetUserByEmail(string email)
         {
+            users = new List<User>();
             var userDTOs = GetUsers();
-            return userDTOs.Where(u => u.Email == email).ToList().First();
+            foreach (var userDTO in userDTOs)
+            {
+                users.Add(new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password));
+            }
+            return users.First();
+        }
+
+        public User GetUserByEmailAndPassword(string email,string password)
+        {
+            users = new List<User>();
+            var userDTOs = Factory.userConnectionHandler.GetUserWithEmailAndPassword(email, password);
+            foreach (var userDTO in userDTOs)
+            {
+                users.Add(new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password));
+            }
+            return users.First();
         }
     }
 }

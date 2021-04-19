@@ -126,3 +126,4 @@ C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main 
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\bin\Debug\netcoreapp3.1\DAL Factory.pdb
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\bin\Debug\netcoreapp3.1\DTO.pdb
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\bin\Debug\netcoreapp3.1\Interfaces.pdb
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
