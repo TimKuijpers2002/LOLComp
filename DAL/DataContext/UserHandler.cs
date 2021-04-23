@@ -2,6 +2,7 @@
 using Interfaces.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -145,6 +146,25 @@ namespace DAL.DataContext
                 }
             }
             return users;
+        }
+
+        public string Login(UserDTO user)
+        {
+            using (_dbCon.Open())
+            {
+
+                using SqlCommand command = new SqlCommand("spValidateUserLogin", _dbCon.connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@LoginEmail", user.Email);
+                command.Parameters.AddWithValue("@LoginPassword", user.Password);
+
+                string result = command.ExecuteScalar().ToString();
+
+                return result;
+            }
         }
     }
 }

@@ -62,5 +62,12 @@ namespace LOGIC.Collections
             }
             return users.First();
         }
+
+        public string ValidateLogin(User user)
+        {
+            var result = Converter.ConvertToUserDTO(user);
+            string userresult = Factory.userConnectionHandler.Login(result);
+            return userresult;
+        }
     }
 }
