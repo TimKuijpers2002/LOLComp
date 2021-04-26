@@ -77,10 +77,10 @@ namespace LOLComp.Controllers
                 else
                 {
                     TempData["UserLoginFailed"] = "Login Failed.Please enter correct credentials";
-                    return RedirectToAction("Login", "User");
+                    return View();
                 }
             }
-            return RedirectToAction("Login", "User");
+            return View();
         }
     }
 }

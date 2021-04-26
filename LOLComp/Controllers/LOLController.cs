@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LOLComp.Controllers
 {
+    [Authorize(Roles = "User")]
+
     public class LOLController : Controller
-    {
-        [Authorize(Roles = "User")]
+    { 
+
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
