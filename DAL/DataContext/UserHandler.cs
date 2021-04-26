@@ -21,12 +21,13 @@ namespace DAL.DataContext
         {
             using (_dbCon.Open())
             {
-                string query = "INSERT INTO User (Name, Email, Password) VALUES (@Name, @Email, @Password);";
+                string query = "INSERT INTO User (Name, Email, Password) VALUES (@Name, @Email, @Password, @Role);";
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
                     command.Parameters.AddWithValue("@Name", U1.Name);
                     command.Parameters.AddWithValue("@Email", U1.Email);
                     command.Parameters.AddWithValue("@Password", U1.Password);
+                    command.Parameters.AddWithValue("@Role", U1.Role);
 
                     command.ExecuteNonQuery();
                 }
@@ -64,6 +65,7 @@ namespace DAL.DataContext
                             Name = reader.GetString(1),
                             Email = reader.GetString(2),
                             Password = reader.GetString(3),
+                            Role = reader.GetString(4)
 
                         };
 
@@ -78,13 +80,14 @@ namespace DAL.DataContext
         {
             using (_dbCon.Open())
             {
-                string query = "UPDATE User Set Name = @Name, Email = @Email, Password = @Password WHERE UserID = @UserID;";
+                string query = "UPDATE User Set Name = @Name, Email = @Email, Password = @Password, Role = @Role WHERE UserID = @UserID;";
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
                     command.Parameters.AddWithValue("@UserID", U1.UserID);
                     command.Parameters.AddWithValue("@Name", U1.Name);
                     command.Parameters.AddWithValue("@Email", U1.Email);
                     command.Parameters.AddWithValue("@Password", U1.Password);
+                    command.Parameters.AddWithValue("@Role", U1.Role);
 
                     command.ExecuteNonQuery();
                 }
@@ -110,6 +113,7 @@ namespace DAL.DataContext
                             Name = reader.GetString(1),
                             Email = reader.GetString(2),
                             Password = reader.GetString(3),
+                            Role = reader.GetString(4)
 
                         };
 
@@ -138,6 +142,7 @@ namespace DAL.DataContext
                             Name = reader.GetString(1),
                             Email = reader.GetString(2),
                             Password = reader.GetString(3),
+                            Role = reader.GetString(4)
 
                         };
 

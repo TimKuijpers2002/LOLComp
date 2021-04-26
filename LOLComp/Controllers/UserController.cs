@@ -1,42 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using LOGIC.Collections;
+using LOLComp.ModelConverters;
 using LOLComp.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LOLComp.Controllers
 {
     public class UserController : Controller
     {
-        private GroupCollection groupCollection;
-
-        private List<GroupModel> groupModels;
-
+        private readonly LOGICAndViewModel Converter;
+        private readonly UserCollection userCollection;
         public UserController()
         {
-            groupCollection = new GroupCollection();
+            Converter = new LOGICAndViewModel();
+            userCollection = new UserCollection();
         }
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Groups(int userID)
+        [HttpGet]
+        public IActionResult Login()
         {
-            groupModels = new List<GroupModel>();
-            var Groups = groupCollection.GetGroupsWithUserID(userID);
-            foreach(var group in Groups)
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login([Bind] UserLoginViewModel user)
+        {
+            if (ModelState.IsValid)
             {
-                GroupModel groupModel = new GroupModel()
+                string LoginStatus = userCollection.ValidateLogin(UserLoginViewModel.ConvertViewModelToModel(user));
+
+                if (LoginStatus == "Success")
                 {
-                    GroupID = group.GroupID,
-                    GroupName = group.Name,
-                };
-                groupModels.Add(groupModel);
+                    var all = userCollection.GetUsers();
+                    var list = new List<UserModel>();
+                    if (user.Email != null)
+                    {
+                        for (int i = 0; i < all.Count; i++)
+                        {
+                            if (user.Email == all[i].Email)
+                            {
+                                list.Add(new UserModel
+                                {
+                                    UserID = all[i].UserID,
+                                    Name = all[i].Name,
+                                    Email = all[i].Email,
+                                    Password = all[i].Password,
+                                    Role = all[i].Role
+                                });
+
+                                var claims = new List<Claim>
+                                {
+                                    new Claim(ClaimTypes.Email, user.Email),
+                                    new Claim(ClaimTypes.Role, all[i].Role),
+                                };
+                                ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "login");
+                                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+
+                                await HttpContext.SignInAsync(principal);
+                                TempData["LoggedIn"] = "You have logged in with your personal account.";
+                                return RedirectToAction("Index", "LOL");
+
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    TempData["UserLoginFailed"] = "Login Failed.Please enter correct credentials";
+                    return RedirectToAction("Login", "User");
+                }
             }
-            return View(groupModels);
+            return RedirectToAction("Login", "User");
         }
     }
 }

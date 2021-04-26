@@ -21,7 +21,7 @@ namespace LOLComp.Models
 
         public static User ConvertViewModelToModel(UserLoginViewModel viewmodel)
         {
-            var _model = new User(0, "null", viewmodel.Email, viewmodel.Password);
+            var _model = new User(0, "null", viewmodel.Email, viewmodel.Password, "null");
             return _model;
         }
     }

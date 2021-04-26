@@ -15,7 +15,7 @@ namespace LOGIC.ModelConverters
 
         public User ConvertToUser(UserDTO userDTO)
         {
-            user = new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password);
+            user = new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password, userDTO.Role);
             return user;
         }
 
@@ -26,7 +26,8 @@ namespace LOGIC.ModelConverters
                 UserID = user.UserID,
                 Name = user.Name,
                 Email = user.Email,
-                Password = user.Password
+                Password = user.Password,
+                Role = user.Role
             };
             return userDTO;
         }

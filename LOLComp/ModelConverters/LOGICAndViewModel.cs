@@ -16,7 +16,7 @@ namespace LOLComp.ModelConverters
 
         public User ConvertToUser(UserModel userViewModel)
         {
-            user = new User(userViewModel.UserID, userViewModel.Name, userViewModel.Email, userViewModel.Password);
+            user = new User(userViewModel.UserID, userViewModel.Name, userViewModel.Email, userViewModel.Password, userViewModel.Role);
             return user;
         }
 

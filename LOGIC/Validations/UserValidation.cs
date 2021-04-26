@@ -14,7 +14,7 @@ namespace LOGIC.Validations
             var userDTOs = Factory.userConnectionHandler.GetUserWithEmailAndPassword(email, password);
             foreach (var userDTO in userDTOs)
             {
-                users.Add(new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password));
+                users.Add(new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password, userDTO.Role));
             }
             return users.Count == 1 ? true : false;
         }
