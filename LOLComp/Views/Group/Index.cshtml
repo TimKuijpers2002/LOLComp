@@ -8,9 +8,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.GroupID)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.GroupName)
             </th>
             <th></th>
@@ -19,9 +16,6 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GroupID)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GroupName)
             </td>
