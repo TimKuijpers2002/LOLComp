@@ -68,7 +68,7 @@ namespace LOLComp.Controllers
 
                                 await HttpContext.SignInAsync(principal);
                                 TempData["LoggedIn"] = "You have logged in with your personal account.";
-                                return RedirectToAction("Index", "LOL");
+                                return RedirectToAction("Index", "Home");
 
                             }
                         }

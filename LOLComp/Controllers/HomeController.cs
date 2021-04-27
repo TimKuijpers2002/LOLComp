@@ -10,6 +10,7 @@ using System.Security.Claims;
 using LOLComp.ModelConverters;
 using LOGIC.Collections;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LOLComp.Controllers
 {
@@ -26,8 +27,14 @@ namespace LOLComp.Controllers
             userCollection = new UserCollection();
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
+            var shouldShowOtherHomePage = User.IsInRole("User");
+            if (shouldShowOtherHomePage)
+            {
+                return RedirectToAction("Index", "LOL");
+            }
             return View();
         }
 
