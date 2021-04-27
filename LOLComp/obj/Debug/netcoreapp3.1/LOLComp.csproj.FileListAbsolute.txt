@@ -129,3 +129,4 @@ C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main 
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\User\AccessDenies.cshtml.g.cs
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\User\Login.cshtml.g.cs
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\LOL\Index.cshtml.g.cs
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutLOLPage.cshtml.g.cs
