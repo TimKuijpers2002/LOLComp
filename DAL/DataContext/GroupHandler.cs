@@ -88,7 +88,7 @@ namespace DAL.DataContext
             var groups = new List<GroupDTO>();
             using (_dbCon.Open())
             {
-                string query = "SELECT COUNT(*) FROM [dbi431200_LOLComp].[dbo].[Group] WHERE GroupID = ( SELECT GroupID FROM [dbi431200_LOLComp].[dbo].[User-Group] WHERE UserID = @UserID)";
+                string query = "SELECT * FROM [Group] INNER JOIN [User-Group] ON [Group].GroupID = [User-Group].GroupID WHERE [User-Group].UserID = @UserID;";
 
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
