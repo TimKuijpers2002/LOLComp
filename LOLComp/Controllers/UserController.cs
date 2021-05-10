@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using LOGIC.Collections;
+using LOGIC.Validations;
 using LOLComp.ModelConverters;
 using LOLComp.Models;
 using Microsoft.AspNetCore.Authentication;
@@ -14,11 +15,13 @@ namespace LOLComp.Controllers
     public class UserController : Controller
     {
         private readonly LOGICAndViewModelConverter converter;
+        private readonly UserValidation validator;
         private readonly UserCollection userCollection;
         public UserController()
         {
             converter = new LOGICAndViewModelConverter();
             userCollection = new UserCollection();
+            validator = new UserValidation();
         }
         public IActionResult Index()
         {
@@ -49,14 +52,19 @@ namespace LOLComp.Controllers
         {
             if (ModelState.IsValid)
             {
-                userCollection.CreateUser(UserRegisterViewModel.ConvertViewModelToModel(viewModel));
-                TempData["Registrated"] = "You have succesfully registarted, you can now login!";
-                return RedirectToAction("Login");
+                if (!validator.CheckIfUserExists(viewModel.Email))
+                {
+                    userCollection.CreateUser(UserRegisterViewModel.ConvertViewModelToModel(viewModel));
+                    TempData["Registrated"] = "You have succesfully registarted, you can now login!";
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    TempData["Registrated"] = "This user already exists, please login!";
+                    return View();
+                }
             }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            return RedirectToAction("Index", "Home");
            
         }
 

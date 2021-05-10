@@ -51,17 +51,6 @@ namespace LOGIC.Collections
             return users.First();
         }
 
-        public User GetUserByEmailAndPassword(string email,string password)
-        {
-            users = new List<User>();
-            var userDTOs = Factory.userConnectionHandler.GetUserWithEmailAndPassword(email, password);
-            foreach (var userDTO in userDTOs)
-            {
-                users.Add(converter.ConvertToUser(userDTO));
-            }
-            return users.First();
-        }
-
         public string ValidateLogin(User user)
         {
             var result = converter.ConvertToUserDTO(user);

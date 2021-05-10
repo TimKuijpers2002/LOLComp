@@ -8,10 +8,10 @@ namespace LOGIC.Validations
 {
     public class UserValidation
     {
-        public bool CheckIfUserExists(string email, string password)
+        public bool CheckIfUserExists(string email)
         {
             var users = new List<User>();
-            var userDTOs = Factory.userConnectionHandler.GetUserWithEmailAndPassword(email, password);
+            var userDTOs = Factory.userConnectionHandler.GetUserWithEmail(email);
             foreach (var userDTO in userDTOs)
             {
                 users.Add(new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password, userDTO.Role));
