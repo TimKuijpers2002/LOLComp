@@ -2,11 +2,16 @@
 
 @{
     ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_LayoutNoNavBar.cshtml";
 }
 
 <h1>Login</h1>
 
 <hr />
+@if (TempData["Registrated"] != null)
+{
+    <p class="alert-success">@TempData["Registrated"]</p>
+}
 @if (TempData["UserLoginFailed"] != null)
 {
     <p class="alert alert-danger">@TempData["UserLoginFailed"]</p>
@@ -40,6 +45,9 @@
             </div>
         </form>
     </div>
+</div>
+<div>
+    <a asp-action="Create" asp-controller="User">Don't have an account yet? Register here!</a>
 </div>
 
 <div>

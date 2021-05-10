@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LOLComp.ModelConverters
 {
-    public class LOGICAndViewModel
+    public class LOGICAndViewModelConverter
     {
         private User user { get; set; }
         private UserModel userViewModel { get; set; }
@@ -27,7 +27,8 @@ namespace LOLComp.ModelConverters
                 UserID = user.UserID,
                 Name = user.Name,
                 Email = user.Email,
-                Password = user.Password
+                Password = user.Password,
+                Role = user.Role
             };
             return userViewModel;
         }
@@ -38,7 +39,7 @@ namespace LOLComp.ModelConverters
             return group;
         }
 
-        public GroupModel ConvertToGroupDTO(Group group)
+        public GroupModel ConvertToGroupViewModel(Group group)
         {
             groupViewModel = new GroupModel()
             {

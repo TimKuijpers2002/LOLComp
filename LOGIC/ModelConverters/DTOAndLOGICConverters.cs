@@ -6,7 +6,7 @@ using System.Text;
 
 namespace LOGIC.ModelConverters
 {
-    public class DTOAndLOGIC
+    public class DTOAndLOGICConverters
     {
         private User user { get; set; }
         private UserDTO userDTO { get; set; }

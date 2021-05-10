@@ -16,22 +16,21 @@ namespace LOLComp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly LOGICAndViewModel Converter;
+        private readonly ILogger<HomeController> logger;
+        private readonly LOGICAndViewModelConverter converter;
         private readonly UserCollection userCollection;
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
-            Converter = new LOGICAndViewModel();
+            this.logger = logger;
+            converter = new LOGICAndViewModelConverter();
             userCollection = new UserCollection();
         }
 
         [AllowAnonymous]
         public IActionResult Index()
         {
-            var shouldShowOtherHomePage = User.IsInRole("User");
-            if (shouldShowOtherHomePage)
+            if (User.IsInRole("User"))
             {
                 return RedirectToAction("Index", "LOL");
             }

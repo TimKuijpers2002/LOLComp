@@ -9,7 +9,7 @@ namespace LOGIC.Models
 {
     public class Group
     {
-        private DTOAndLOGIC Converter { get; set; }
+        private DTOAndLOGICConverters converter;
         public int GroupID { get; private set; }
         public string Name { get; private set; }
 
@@ -21,9 +21,9 @@ namespace LOGIC.Models
 
         public void UpdateGroup(Group group)
         {
-            Converter = new DTOAndLOGIC();
+            converter = new DTOAndLOGICConverters();
             //FIX het tempID in controller nog!
-            Factory.groupConnectionHandler.UpdateGroup(Converter.ConvertToGroupDTO(group));
+            Factory.groupConnectionHandler.UpdateGroup(converter.ConvertToGroupDTO(group));
         }
     }
 }

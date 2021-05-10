@@ -13,16 +13,24 @@ namespace LOLComp.Controllers
 {
     public class UserController : Controller
     {
-        private readonly LOGICAndViewModel Converter;
+        private readonly LOGICAndViewModelConverter converter;
         private readonly UserCollection userCollection;
         public UserController()
         {
-            Converter = new LOGICAndViewModel();
+            converter = new LOGICAndViewModelConverter();
             userCollection = new UserCollection();
         }
         public IActionResult Index()
         {
-            return View();
+            var userModel = userCollection.GetUserByEmail(User.FindFirstValue(ClaimTypes.Email));
+            var userViewModel = converter.ConvertToUserViewModel(userModel);
+            return View(userViewModel);
+        }
+
+        public IActionResult Update(string email)
+        {
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -31,23 +39,44 @@ namespace LOLComp.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login([Bind] UserLoginViewModel user)
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult Create(UserRegisterViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                string LoginStatus = userCollection.ValidateLogin(UserLoginViewModel.ConvertViewModelToModel(user));
+                userCollection.CreateUser(UserRegisterViewModel.ConvertViewModelToModel(viewModel));
+                TempData["Registrated"] = "You have succesfully registarted, you can now login!";
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+           
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login([Bind] UserLoginViewModel userViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                string LoginStatus = userCollection.ValidateLogin(UserLoginViewModel.ConvertViewModelToModel(userViewModel));
 
                 if (LoginStatus == "Success")
                 {
                     var all = userCollection.GetUsers();
                     var list = new List<UserModel>();
-                    if (user.Email != null)
+                    if (userViewModel.Email != null)
                     {
                         for (int i = 0; i < all.Count; i++)
                         {
-                            if (user.Email == all[i].Email)
+                            if (userViewModel.Email == all[i].Email)
                             {
                                 list.Add(new UserModel
                                 {
@@ -60,7 +89,7 @@ namespace LOLComp.Controllers
 
                                 var claims = new List<Claim>
                                 {
-                                    new Claim(ClaimTypes.Email, user.Email),
+                                    new Claim(ClaimTypes.Email, userViewModel.Email),
                                     new Claim(ClaimTypes.Role, all[i].Role),
                                 };
                                 ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "login");

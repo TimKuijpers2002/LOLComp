@@ -88,7 +88,7 @@ namespace DAL.DataContext
             var groups = new List<GroupDTO>();
             using (_dbCon.Open())
             {
-                string query = "SELECT * FROM [Group] INNER JOIN [User-Group] ON [Group].GroupID = [User-Group].GroupID WHERE [User-Group].UserID = @UserID;";
+                string query = "SELECT * FROM [Group] JOIN [User-Group] ON [Group].GroupID = [User-Group].GroupID WHERE [User-Group].UserID = @UserID;";
 
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
@@ -98,8 +98,8 @@ namespace DAL.DataContext
                     {
                         GroupDTO groupDTO = new GroupDTO
                         {
-                            GroupID = reader.GetInt32(0),
-                            Name = reader.GetString(1)
+                            GroupID = Convert.ToInt32(reader["GroupID"]),
+                            Name = Convert.ToString(reader["Name"])
                         };
 
                         groups.Add(groupDTO);

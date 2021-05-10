@@ -130,3 +130,6 @@ C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main 
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\LOL\Index.cshtml.g.cs
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutLOLPage.cshtml.g.cs
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\Group\Index.cshtml.g.cs
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutNoNavBar.cshtml.g.cs
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOLComp\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs

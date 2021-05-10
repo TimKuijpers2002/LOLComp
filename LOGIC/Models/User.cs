@@ -10,7 +10,7 @@ namespace LOGIC.Models
 {
     public class User
     {
-        private DTOAndLOGIC Converter { get; set; }
+        private DTOAndLOGICConverters converter;
         public int UserID { get; private set; }
         public string Name { get; private set; }
         public string Email { get; private set; }
@@ -28,9 +28,9 @@ namespace LOGIC.Models
 
         public void UpdateUser(User user)
         {
-            Converter = new DTOAndLOGIC();
+            converter = new DTOAndLOGICConverters();
             //FIX het tempID in controller nog!
-            Factory.userConnectionHandler.UpdateUser(Converter.ConvertToUserDTO(user));
+            Factory.userConnectionHandler.UpdateUser(converter.ConvertToUserDTO(user));
         }
     }
 }

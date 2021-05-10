@@ -11,18 +11,18 @@ namespace LOGIC.Collections
 {
     public class GroupCollection
     {
-        private DTOAndLOGIC Converter { get; set; }
+        private DTOAndLOGICConverters converter;
         private UserCollection userCollection;
         private List<Group> groups;
 
         public GroupCollection()
         {
-            Converter = new DTOAndLOGIC();
+            converter = new DTOAndLOGICConverters();
         }
         public void CreateGroup(Group group)
         {
             //FIX het tempID in controller nog!
-            Factory.groupConnectionHandler.CreateGroup(Converter.ConvertToGroupDTO(group));
+            Factory.groupConnectionHandler.CreateGroup(converter.ConvertToGroupDTO(group));
         }
 
         public List<Group> GetGroups()
@@ -31,7 +31,7 @@ namespace LOGIC.Collections
             groups = new List<Group>();
             foreach (var groupDTO in groupDTOs)
             {
-                groups.Add(Converter.ConvertToGroup(groupDTO));
+                groups.Add(converter.ConvertToGroup(groupDTO));
             }
             return groups;
         }
@@ -42,7 +42,7 @@ namespace LOGIC.Collections
             groups = new List<Group>();
             foreach (var groupDTO in groupDTOs)
             {
-                groups.Add(Converter.ConvertToGroup(groupDTO));
+                groups.Add(converter.ConvertToGroup(groupDTO));
             }
             return groups;
         }

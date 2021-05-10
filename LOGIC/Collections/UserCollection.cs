@@ -10,17 +10,16 @@ namespace LOGIC.Collections
 {
     public class UserCollection
     {
-        private DTOAndLOGIC Converter { get; set; }
-        private List<User> users { get; set; }
+        private DTOAndLOGICConverters converter;
+        private List<User> users;
 
         public UserCollection()
         {
-            Converter = new DTOAndLOGIC();
+            converter = new DTOAndLOGICConverters();
         }
         public void CreateUser(User user)
         {
-            //FIX het tempID in controller nog!
-            Factory.userConnectionHandler.CreateUser(Converter.ConvertToUserDTO(user));
+            Factory.userConnectionHandler.CreateUser(converter.ConvertToUserDTO(user));
         }
 
         public List<User> GetUsers()
@@ -29,7 +28,7 @@ namespace LOGIC.Collections
             users = new List<User>();
             foreach(var userDTO in userDTOs)
             {
-                users.Add(Converter.ConvertToUser(userDTO));
+                users.Add(converter.ConvertToUser(userDTO));
             }
             return users;
         }
@@ -47,7 +46,7 @@ namespace LOGIC.Collections
             var userDTOs = Factory.userConnectionHandler.GetUserWithEmail(email);
             foreach (var userDTO in userDTOs)
             {
-                users.Add(Converter.ConvertToUser(userDTO));
+                users.Add(converter.ConvertToUser(userDTO));
             }
             return users.First();
         }
@@ -58,14 +57,14 @@ namespace LOGIC.Collections
             var userDTOs = Factory.userConnectionHandler.GetUserWithEmailAndPassword(email, password);
             foreach (var userDTO in userDTOs)
             {
-                users.Add(Converter.ConvertToUser(userDTO));
+                users.Add(converter.ConvertToUser(userDTO));
             }
             return users.First();
         }
 
         public string ValidateLogin(User user)
         {
-            var result = Converter.ConvertToUserDTO(user);
+            var result = converter.ConvertToUserDTO(user);
             string userresult = Factory.userConnectionHandler.Login(result);
             return userresult;
         }

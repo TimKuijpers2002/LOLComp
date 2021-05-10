@@ -21,7 +21,7 @@ namespace DAL.DataContext
         {
             using (_dbCon.Open())
             {
-                string query = "INSERT INTO User (Name, Email, Password) VALUES (@Name, @Email, @Password, @Role);";
+                string query = "INSERT INTO [dbo].[User] (Name, Email, Password, Role) VALUES (@Name, @Email, @Password, @Role);";
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
                     command.Parameters.AddWithValue("@Name", U1.Name);
@@ -38,7 +38,7 @@ namespace DAL.DataContext
         {
             using (_dbCon.Open())
             {
-                string query = "DELETE FROM User WHERE UserID=@UserID";
+                string query = "DELETE FROM [dbo].[User] WHERE UserID=@UserID";
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
                     command.Parameters.AddWithValue("@UserID", UserID);
@@ -53,7 +53,7 @@ namespace DAL.DataContext
             var users = new List<UserDTO>();
             using (_dbCon.Open())
             {
-                string query = "SELECT * FROM [dbi431200_LOLComp].[dbo].[User]";
+                string query = "SELECT * FROM [dbo].[User]";
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
                     var reader = command.ExecuteReader();
@@ -80,7 +80,7 @@ namespace DAL.DataContext
         {
             using (_dbCon.Open())
             {
-                string query = "UPDATE User Set Name = @Name, Email = @Email, Password = @Password, Role = @Role WHERE UserID = @UserID;";
+                string query = "UPDATE [dbo].[User] Set Name = @Name, Email = @Email, Password = @Password, Role = @Role WHERE UserID = @UserID;";
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
                     command.Parameters.AddWithValue("@UserID", U1.UserID);
@@ -99,7 +99,7 @@ namespace DAL.DataContext
             var users = new List<UserDTO>();
             using (_dbCon.Open())
             {
-                string query = "SELECT * FROM [dbi431200_LOLComp].[dbo].[User] WHERE Email = @Email AND Password = @Password;";
+                string query = "SELECT * FROM [dbo].[User] WHERE Email = @Email AND Password = @Password;";
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
                     command.Parameters.AddWithValue("@Email", email);
@@ -129,7 +129,7 @@ namespace DAL.DataContext
             var users = new List<UserDTO>();
             using (_dbCon.Open())
             {
-                string query = "SELECT * FROM [dbi431200_LOLComp].[dbo].[User] WHERE Email = @Email";
+                string query = "SELECT * FROM [dbo].[User] WHERE Email = @Email";
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
                     command.Parameters.AddWithValue("@Email", email);
