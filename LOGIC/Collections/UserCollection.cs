@@ -19,12 +19,12 @@ namespace LOGIC.Collections
         }
         public void CreateUser(User user)
         {
-            Factory.UserConnectionHandler.CreateUser(converter.ConvertToUserDTO(user));
+            Factory.userConnectionHandler.CreateUser(converter.ConvertToUserDTO(user));
         }
 
         public List<User> GetUsers()
         {
-            var userDTOs = Factory.UserConnectionHandler.GetUsers();
+            var userDTOs = Factory.userConnectionHandler.GetUsers();
             users = new List<User>();
             foreach(var userDTO in userDTOs)
             {
@@ -37,13 +37,13 @@ namespace LOGIC.Collections
         {
             var userDTOs = GetUsers();
             var userToDelete = userDTOs.Where(u => u.Email == email).ToList().First();
-            Factory.UserConnectionHandler.DeleteUser(userToDelete.UserID);
+            Factory.userConnectionHandler.DeleteUser(userToDelete.UserID);
         }
 
         public User GetUserByEmail(string email)
         {
             users = new List<User>();
-            var userDTOs = Factory.UserConnectionHandler.GetUserWithEmail(email);
+            var userDTOs = Factory.userConnectionHandler.GetUserWithEmail(email);
             foreach (var userDTO in userDTOs)
             {
                 users.Add(converter.ConvertToUser(userDTO));
@@ -54,7 +54,7 @@ namespace LOGIC.Collections
         public string ValidateLogin(User user)
         {
             var result = converter.ConvertToUserDTO(user);
-            string userresult = Factory.UserConnectionHandler.Login(result);
+            string userresult = Factory.userConnectionHandler.Login(result);
             return userresult;
         }
     }

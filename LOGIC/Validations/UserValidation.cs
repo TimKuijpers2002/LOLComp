@@ -11,7 +11,7 @@ namespace LOGIC.Validations
         public bool CheckIfUserExists(string email)
         {
             var users = new List<User>();
-            var userDTOs = Factory.UserConnectionHandler.GetUserWithEmail(email);
+            var userDTOs = Factory.userConnectionHandler.GetUserWithEmail(email);
             foreach (var userDTO in userDTOs)
             {
                 users.Add(new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password, userDTO.Role));
