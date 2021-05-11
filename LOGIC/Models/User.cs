@@ -29,7 +29,7 @@ namespace LOGIC.Models
         public void UpdateUser(User user, int userID)
         {
             converter = new DTOAndLOGICConverters();
-            Factory.userConnectionHandler.UpdateUser(converter.ConvertToUserDTO(user), userID);
+            Factory.UserConnectionHandler.UpdateUser(converter.ConvertToUserDTO(user), userID);
         }
     }
 }

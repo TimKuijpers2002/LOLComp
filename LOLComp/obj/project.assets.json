@@ -1957,10 +1957,7 @@
         },
         "runtime": {
           "bin/placeholder/DAL Factory.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "DTO/1.0.0": {
         "type": "project",

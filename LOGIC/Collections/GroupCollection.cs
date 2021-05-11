@@ -22,12 +22,12 @@ namespace LOGIC.Collections
         public void CreateGroup(Group group)
         {
             //FIX het tempID in controller nog!
-            Factory.groupConnectionHandler.CreateGroup(converter.ConvertToGroupDTO(group));
+            Factory.GroupConnectionHandler.CreateGroup(converter.ConvertToGroupDTO(group));
         }
 
         public List<Group> GetGroups()
         {
-            var groupDTOs = Factory.groupConnectionHandler.GetGroups();
+            var groupDTOs = Factory.GroupConnectionHandler.GetGroups();
             groups = new List<Group>();
             foreach (var groupDTO in groupDTOs)
             {
@@ -38,7 +38,7 @@ namespace LOGIC.Collections
 
         public List<Group> GetGroupsWithUserID(int userID)
         {
-            var groupDTOs = Factory.groupConnectionHandler.GetGroupsWithUserID(userID);
+            var groupDTOs = Factory.GroupConnectionHandler.GetGroupsWithUserID(userID);
             groups = new List<Group>();
             foreach (var groupDTO in groupDTOs)
             {
@@ -53,7 +53,7 @@ namespace LOGIC.Collections
             var userDTO = userCollection.GetUserByEmail(email);
             var groupDTOs = GetGroupsWithUserID(userDTO.UserID);
             var groupToDelete = groupDTOs.Where(g => g.Name == name).ToList().First();
-            Factory.groupConnectionHandler.DeleteGroup(groupToDelete.GroupID);
+            Factory.GroupConnectionHandler.DeleteGroup(groupToDelete.GroupID);
         }
     }
 }

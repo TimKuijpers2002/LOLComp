@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL.APIContext;
 using DAL.DataContext;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -16,10 +17,12 @@ namespace LOLComp
     public class Startup
     {
         private string ConnectionString = "";
+        private string RiotKey = "";
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             configuration = new ConfigurationBuilder().SetBasePath(env.ContentRootPath).AddJsonFile("appsettings.json", optional: false, reloadOnChange: true).Build();
             ConnectionString = configuration["ConnectionStrings:DefaultConnection"];
+            RiotKey = configuration["RiotAPI:AuthKey"];
         }
 
         public IConfiguration Configuration { get; }
@@ -69,6 +72,7 @@ namespace LOLComp
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
             DBConnectionHandler.SetConnectionString(ConnectionString);
+            APIKeyHandler.SetAPIKey(RiotKey);
         }
     }
 }
