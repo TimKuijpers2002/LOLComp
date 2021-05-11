@@ -30,16 +30,27 @@ namespace LOLComp.Controllers
             return View(userViewModel);
         }
 
-        public IActionResult Update(string email)
-        {
-
-            return RedirectToAction("Index");
-        }
-
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Update()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Update(UserModel viewModel)
+        {
+            var userToUpdate = userCollection.GetUserByEmail(User.FindFirstValue(ClaimTypes.Email));
+            if (!validator.CheckIfUserExists(viewModel.Email))
+            {
+                userToUpdate.UpdateUser(converter.ConvertToUser(viewModel, userToUpdate.Role), userToUpdate.UserID);
+                return RedirectToAction("Logout", "User");
+            }
+            else if(validator.CheckIfUserExists(viewModel.Email))
+            {
+                TempData["Updated"] = "This email adress is already in use!";
+                return View();
+            }
+            return RedirectToAction("Index", "LOL");
         }
 
         [HttpGet]
@@ -48,6 +59,7 @@ namespace LOLComp.Controllers
             return View();
         }
 
+        [HttpPost]
         public IActionResult Create(UserRegisterViewModel viewModel)
         {
             if (ModelState.IsValid)
@@ -66,6 +78,12 @@ namespace LOLComp.Controllers
             }
             return RedirectToAction("Index", "Home");
            
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
         }
 
         [HttpPost]
@@ -118,6 +136,14 @@ namespace LOLComp.Controllers
                 }
             }
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            TempData["UserLogout"] = "You have logged out!";
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login", "User");
         }
     }
 }

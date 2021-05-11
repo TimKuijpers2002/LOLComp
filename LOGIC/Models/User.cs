@@ -26,11 +26,10 @@ namespace LOGIC.Models
             Role = role;
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(User user, int userID)
         {
             converter = new DTOAndLOGICConverters();
-            //FIX het tempID in controller nog!
-            Factory.userConnectionHandler.UpdateUser(converter.ConvertToUserDTO(user));
+            Factory.userConnectionHandler.UpdateUser(converter.ConvertToUserDTO(user), userID);
         }
     }
 }

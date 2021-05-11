@@ -9,7 +9,7 @@ namespace Interfaces.Interfaces
     {
         void CreateUser(UserDTO U1);
         List<UserDTO> GetUsers();
-        void UpdateUser(UserDTO U1);
+        void UpdateUser(UserDTO U1, int userID);
         void DeleteUser(int UserID);
         List<UserDTO> GetUserWithEmailAndPassword(string email, string password);
         List<UserDTO> GetUserWithEmail(string email);

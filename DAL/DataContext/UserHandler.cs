@@ -76,14 +76,14 @@ namespace DAL.DataContext
             return users;
         }
 
-        public void UpdateUser(UserDTO U1)
+        public void UpdateUser(UserDTO U1, int userID)
         {
             using (_dbCon.Open())
             {
                 string query = "UPDATE [dbo].[User] Set Name = @Name, Email = @Email, Password = @Password, Role = @Role WHERE UserID = @UserID;";
                 using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
                 {
-                    command.Parameters.AddWithValue("@UserID", U1.UserID);
+                    command.Parameters.AddWithValue("@UserID", userID);
                     command.Parameters.AddWithValue("@Name", U1.Name);
                     command.Parameters.AddWithValue("@Email", U1.Email);
                     command.Parameters.AddWithValue("@Password", U1.Password);

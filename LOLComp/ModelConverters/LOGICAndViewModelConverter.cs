@@ -14,9 +14,9 @@ namespace LOLComp.ModelConverters
         private Group group { get; set; }
         private GroupModel groupViewModel { get; set; }
 
-        public User ConvertToUser(UserModel userViewModel)
+        public User ConvertToUser(UserModel userViewModel, string role)
         {
-            user = new User(userViewModel.UserID, userViewModel.Name, userViewModel.Email, userViewModel.Password, userViewModel.Role);
+            user = new User(userViewModel.UserID, userViewModel.Name, userViewModel.Email, userViewModel.Password, role);
             return user;
         }
 
