@@ -23,7 +23,7 @@ namespace LOGIC.Models
         {
             converter = new DTOAndLOGICConverters();
             //FIX het tempID in controller nog!
-            Factory.groupConnectionHandler.UpdateGroup(converter.ConvertToGroupDTO(group));
+            Factory.GroupConnectionHandler.UpdateGroup(converter.ConvertToGroupDTO(group));
         }
     }
 }

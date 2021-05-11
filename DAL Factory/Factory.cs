@@ -1,4 +1,5 @@
-﻿using DAL.DataContext;
+﻿using DAL.APIContext;
+using DAL.DataContext;
 using Interfaces.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,9 @@ namespace DAL_Factory
     {
         private static IUserHandler _userConnectionHandler;
         private static IGroupHandler _groupConnectionHandler;
+        private static IRequester _requesterConnectionHandler;
 
-        public static IUserHandler userConnectionHandler
+        public static IUserHandler UserConnectionHandler
         {
             get
             {
@@ -23,7 +25,7 @@ namespace DAL_Factory
             }
         }
 
-        public static IGroupHandler groupConnectionHandler
+        public static IGroupHandler GroupConnectionHandler
         {
             get
             {
@@ -32,6 +34,18 @@ namespace DAL_Factory
                     _groupConnectionHandler = new GroupHandler(new DBConnectionHandler());
                 }
                 return _groupConnectionHandler;
+            }
+        }
+
+        public static IRequester RequesterConnectionHandler
+        {
+            get
+            {
+                if (_requesterConnectionHandler == null)
+                {
+                    _requesterConnectionHandler = new Requester(new APIKeyHandler());
+                }
+                return _requesterConnectionHandler;
             }
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using LOGIC.Collections;
+using LOGIC.Models;
 using LOGIC.Validations;
 using LOLComp.ModelConverters;
 using LOLComp.Models;
@@ -17,16 +18,19 @@ namespace LOLComp.Controllers
         private readonly LOGICAndViewModelConverter converter;
         private readonly UserValidation validator;
         private readonly UserCollection userCollection;
+        private readonly Summoner summoner;
         public UserController()
         {
             converter = new LOGICAndViewModelConverter();
             userCollection = new UserCollection();
             validator = new UserValidation();
+            summoner = new Summoner();
         }
         public IActionResult Index()
         {
             var userModel = userCollection.GetUserByEmail(User.FindFirstValue(ClaimTypes.Email));
             var userViewModel = converter.ConvertToUserViewModel(userModel);
+            summoner.TestRequest("EUW1", "TimsKu2002");
             return View(userViewModel);
         }
 
