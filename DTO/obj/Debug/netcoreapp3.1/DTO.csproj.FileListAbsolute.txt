@@ -4,6 +4,6 @@ C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main 
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
-C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\DTO\obj\Debug\netcoreapp3.1\DTO.dll
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache

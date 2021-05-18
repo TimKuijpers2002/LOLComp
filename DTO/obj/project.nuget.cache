@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Vvno6CDFACCWBmehKFUUIb1Rpjv1C+OGtIhiAjoyjpBXG6gry0NU+2Ez472LYjA6ab7l8Mr0VZ4RwMKpK4Z+5w==",
+  "dgSpecHash": "8D3GnvvlwRGchUDz8j3tVg+9EAwO5KtMGBcoT0W9rsrwMXgcOU9Fwo65eXLrvF3ZDC1N0HfLZSeHjMHAsgmbFw==",
   "success": true,
   "projectFilePath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\DTO\\DTO.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\TimKu\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

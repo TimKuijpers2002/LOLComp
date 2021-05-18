@@ -12,6 +12,8 @@ namespace LOGIC.ModelConverters
         private UserDTO userDTO { get; set; }
         private Group group { get; set; }
         private GroupDTO groupDTO { get; set; }
+        private Summoner summoner { get; set; }
+        private SummonerDTO summonerDTO { get; set; }
 
         public User ConvertToUser(UserDTO userDTO)
         {
@@ -46,6 +48,27 @@ namespace LOGIC.ModelConverters
                 Name = group.Name
             };
             return groupDTO;
+        }
+
+        public Summoner ConvertToSummoner(SummonerDTO summonerDTO)
+        {
+            summoner = new Summoner(summonerDTO.ID, summonerDTO.AccountID, summonerDTO.PuuID, summonerDTO.Name, summonerDTO.ProfileIconID, summonerDTO.RevisionDate, summonerDTO.SummonerLevel);
+            return summoner;
+        }
+
+        public SummonerDTO ConvertToGroupDTO(Summoner summoner)
+        {
+            summonerDTO = new SummonerDTO()
+            {
+                ID = summoner.ID,
+                AccountID = summoner.AccountID,
+                PuuID = summoner.PuuID,
+                Name = summoner.Name,
+                ProfileIconID = summoner.ProfileIconID,
+                RevisionDate = summoner.RevisionDate,
+                SummonerLevel = summoner.SummonerLevel
+            };
+            return summonerDTO;
         }
     }
 }

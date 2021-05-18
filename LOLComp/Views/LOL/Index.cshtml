@@ -7,8 +7,20 @@
 {
     <p class="alert alert-success">@TempData["LoggedIn"]</p>
 }
+@if (TempData["SummonerNotFound"] != null)
+{
+    <p class="alert alert-danger">@TempData["SummonerNotFound"]</p>
+}
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>This is a test</p>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Enter your summonername</h1>
+    @using (Html.BeginForm("FindSummoner", "User", FormMethod.Get))
+    {
+        @Html.TextBox("summonerName", null, new { @id = "search", @class = "search", @placeholder = "Summonername...", @type = "text" })
+    }
 </div>

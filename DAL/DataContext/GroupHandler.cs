@@ -9,7 +9,7 @@ namespace DAL.DataContext
 {
     public class GroupHandler : IGroupHandler
     {
-        private DBConnectionHandler _dbCon;
+        private readonly DBConnectionHandler _dbCon;
 
         public GroupHandler(DBConnectionHandler dbCon)
         {

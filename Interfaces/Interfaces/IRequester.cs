@@ -1,11 +1,13 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Interfaces.Interfaces
 {
     public interface IRequester
     {
-        void RequestSummonerData(string region, string summonerName);
+        Task<SummonerDTO> RequestSummonerData(string summonerName);
     }
 }

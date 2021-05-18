@@ -10,7 +10,7 @@ namespace DAL.DataContext
 {
     public class UserHandler : IUserHandler
     {
-        private DBConnectionHandler _dbCon;
+        private readonly DBConnectionHandler _dbCon;
 
         public UserHandler(DBConnectionHandler dbCon)
         {
