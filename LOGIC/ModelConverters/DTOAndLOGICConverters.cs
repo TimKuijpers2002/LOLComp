@@ -8,22 +8,22 @@ namespace LOGIC.ModelConverters
 {
     public class DTOAndLOGICConverters
     {
-        private User user { get; set; }
-        private UserDTO userDTO { get; set; }
-        private Group group { get; set; }
-        private GroupDTO groupDTO { get; set; }
-        private Summoner summoner { get; set; }
-        private SummonerDTO summonerDTO { get; set; }
+        private User User { get; set; }
+        private UserDTO UserDTO { get; set; }
+        private Group Group { get; set; }
+        private GroupDTO GroupDTO { get; set; }
+        private Summoner Summoner { get; set; }
+        private SummonerDTO SummonerDTO { get; set; }
 
         public User ConvertToUser(UserDTO userDTO)
         {
-            user = new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password, userDTO.Role);
-            return user;
+            User = new User(userDTO.UserID, userDTO.Name, userDTO.Email, userDTO.Password, userDTO.Role);
+            return User;
         }
 
         public UserDTO ConvertToUserDTO(User user)
         {
-            userDTO = new UserDTO()
+            UserDTO = new UserDTO()
             {
                 UserID = user.UserID,
                 Name = user.Name,
@@ -31,34 +31,34 @@ namespace LOGIC.ModelConverters
                 Password = user.Password,
                 Role = user.Role
             };
-            return userDTO;
+            return UserDTO;
         }
 
         public Group ConvertToGroup(GroupDTO groupDTO)
         {
-            group = new Group(groupDTO.GroupID, groupDTO.Name);
-            return group;
+            Group = new Group(groupDTO.GroupID, groupDTO.Name);
+            return Group;
         }
 
         public GroupDTO ConvertToGroupDTO(Group group)
         {
-            groupDTO = new GroupDTO()
+            GroupDTO = new GroupDTO()
             {
                 GroupID = group.GroupID,
                 Name = group.Name
             };
-            return groupDTO;
+            return GroupDTO;
         }
 
         public Summoner ConvertToSummoner(SummonerDTO summonerDTO)
         {
-            summoner = new Summoner(summonerDTO.ID, summonerDTO.AccountID, summonerDTO.PuuID, summonerDTO.Name, summonerDTO.ProfileIconID, summonerDTO.RevisionDate, summonerDTO.SummonerLevel);
-            return summoner;
+            Summoner = new Summoner(summonerDTO.ID, summonerDTO.AccountID, summonerDTO.PuuID, summonerDTO.Name, summonerDTO.ProfileIconID, summonerDTO.RevisionDate, summonerDTO.SummonerLevel, summonerDTO.Region);
+            return Summoner;
         }
 
         public SummonerDTO ConvertToGroupDTO(Summoner summoner)
         {
-            summonerDTO = new SummonerDTO()
+            SummonerDTO = new SummonerDTO()
             {
                 ID = summoner.ID,
                 AccountID = summoner.AccountID,
@@ -68,7 +68,7 @@ namespace LOGIC.ModelConverters
                 RevisionDate = summoner.RevisionDate,
                 SummonerLevel = summoner.SummonerLevel
             };
-            return summonerDTO;
+            return SummonerDTO;
         }
     }
 }

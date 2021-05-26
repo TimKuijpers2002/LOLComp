@@ -2,6 +2,11 @@
     ViewData["Title"] = "Home Page";
 }
 
+@if (TempData["NoConnectionToDB"] != null)
+{
+    <p class="alert-danger">@TempData["NoConnectionToDB"]</p>
+}
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>

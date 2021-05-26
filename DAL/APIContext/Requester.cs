@@ -6,6 +6,8 @@ using System.Text;
 using DTO;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.APIContext
 {
@@ -23,10 +25,12 @@ namespace DAL.APIContext
             return new Exception(message);
         }
 
-        public async Task<SummonerDTO> RequestSummonerData(string summonerName)
+        public async Task<List<SummonerDTO>> RequestSummonerData(string summonerName)
         {
             var apiKey = apiKeyHandler.UseRiotKey();
-            foreach(var region in (Regions[])Enum.GetValues(typeof(Regions)))
+            var summonerList = new List<SummonerDTO>();
+
+            foreach (var region in (Regions[])Enum.GetValues(typeof(Regions)))
             {
                 var URL = "https://" + region + ".api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerName + "?api_key=" + apiKey;
 
@@ -46,12 +50,26 @@ namespace DAL.APIContext
                         Name = (string)jUser["name"],
                         ProfileIconID = (int)jUser["profileIconId"],
                         RevisionDate = (long)jUser["revisionDate"],
-                        SummonerLevel = (int)jUser["summonerLevel"]
+                        SummonerLevel = (int)jUser["summonerLevel"],
+                        Region = region.ToString()
+                        
                     };
-                    return summonerDTO;
+                    summonerList.Add(summonerDTO);
+                }
+                else
+                {
+                    throw _Exception("There was an error trying to access the external API, try again later");
                 }
             }
-            throw _Exception("This summoner could not be found");
+            if(summonerList.Any())
+            {
+                return summonerList;
+            }
+            else
+            {
+                throw _Exception("This summoner could not be found");
+            }
+            
         }
     }
 }

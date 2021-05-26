@@ -8,6 +8,6 @@ namespace Interfaces.Interfaces
 {
     public interface IRequester
     {
-        Task<SummonerDTO> RequestSummonerData(string summonerName);
+        Task<List<SummonerDTO>> RequestSummonerData(string summonerName);
     }
 }

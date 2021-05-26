@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Text;
+using System.Threading;
 
 namespace DAL.DataContext
 {
@@ -13,18 +16,35 @@ namespace DAL.DataContext
         {
             connectionString = constring;
         }
-        public SqlConnection connection { get; private set; }
+        public SqlConnection Connection { get; private set; }
         public SqlConnection Open()
         {
-            connection = new SqlConnection(connectionString);
-            connection.Open();
+            Connection = new SqlConnection(connectionString);
+            if (!isAvailable(Connection))
+            {
+                throw new Exception("There was an error trying to form a connection, try again later");
+            }
+            Connection.Open();
+            return Connection;
+        }
 
-            return connection;
+        private bool isAvailable(SqlConnection connection)
+        {
+            try
+            {
+                connection.Open();
+                connection.Close();
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+            return true;
         }
 
         public void Close()
         {
-            connection.Close();
+            Connection.Close();
         }
     }
 }

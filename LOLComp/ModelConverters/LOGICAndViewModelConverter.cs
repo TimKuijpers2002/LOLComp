@@ -10,19 +10,20 @@ namespace LOLComp.ModelConverters
     public class LOGICAndViewModelConverter
     {
         private User user { get; set; }
-        private UserModel userViewModel { get; set; }
+        private UserViewModel userViewModel { get; set; }
         private Group group { get; set; }
-        private GroupModel groupViewModel { get; set; }
+        private GroupViewModel groupViewModel { get; set; }
+        private SummonerViewModel summonerViewModel { get; set; }
 
-        public User ConvertToUser(UserModel userViewModel, string role)
+        public User ConvertToUser(UserViewModel userViewModel, string role)
         {
             user = new User(userViewModel.UserID, userViewModel.Name, userViewModel.Email, userViewModel.Password, role);
             return user;
         }
 
-        public UserModel ConvertToUserViewModel(User user)
+        public UserViewModel ConvertToUserViewModel(User user)
         {
-            userViewModel = new UserModel()
+            userViewModel = new UserViewModel()
             {
                 UserID = user.UserID,
                 Name = user.Name,
@@ -33,20 +34,32 @@ namespace LOLComp.ModelConverters
             return userViewModel;
         }
 
-        public Group ConvertToGroup(GroupModel groupViewModel)
+        public Group ConvertToGroup(GroupViewModel groupViewModel)
         {
             group = new Group(groupViewModel.GroupID, groupViewModel.GroupName);
             return group;
         }
 
-        public GroupModel ConvertToGroupViewModel(Group group)
+        public GroupViewModel ConvertToGroupViewModel(Group group)
         {
-            groupViewModel = new GroupModel()
+            groupViewModel = new GroupViewModel()
             {
                 GroupID = group.GroupID,
                 GroupName = group.Name
             };
             return groupViewModel;
+        }
+
+        public SummonerViewModel ConvertToSummonerViewModel(Summoner summoner)
+        {
+            summonerViewModel = new SummonerViewModel()
+            {
+                Name = summoner.Name,
+                ProfileIconID = summoner.ProfileIconID,
+                SummonerLevel = summoner.SummonerLevel,
+                Region = summoner.Region
+            };
+            return summonerViewModel;
         }
     }
 }

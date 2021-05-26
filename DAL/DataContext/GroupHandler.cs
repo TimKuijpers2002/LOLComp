@@ -21,7 +21,7 @@ namespace DAL.DataContext
             using (_dbCon.Open())
             {
                 string query = "INSERT INTO Group (Name) VALUES (@Name);";
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                using (SqlCommand command = new SqlCommand(query, _dbCon.Connection))
                 {
                     command.Parameters.AddWithValue("@Name", G1.Name);
 
@@ -35,7 +35,7 @@ namespace DAL.DataContext
             using (_dbCon.Open())
             {
                 string query = "DELETE FROM Group WHERE GroupID=@GroupID";
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                using (SqlCommand command = new SqlCommand(query, _dbCon.Connection))
                 {
                     command.Parameters.AddWithValue("@GroupID", GroupID);
                     _dbCon.Open();
@@ -50,7 +50,7 @@ namespace DAL.DataContext
             using (_dbCon.Open())
             {
                 string query = "SELECT * FROM [dbi431200_LOLComp].[dbo].[Group]";
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                using (SqlCommand command = new SqlCommand(query, _dbCon.Connection))
                 {
                     var reader = command.ExecuteReader();
                     while (reader.Read())
@@ -73,7 +73,7 @@ namespace DAL.DataContext
             using (_dbCon.Open())
             {
                 string query = "UPDATE Group Set Name = @Name WHERE GroupID = @GroupID;";
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                using (SqlCommand command = new SqlCommand(query, _dbCon.Connection))
                 {
                     command.Parameters.AddWithValue("@GroupID", G1.GroupID);
                     command.Parameters.AddWithValue("@Name", G1.Name);
@@ -90,7 +90,7 @@ namespace DAL.DataContext
             {
                 string query = "SELECT * FROM [Group] JOIN [User-Group] ON [Group].GroupID = [User-Group].GroupID WHERE [User-Group].UserID = @UserID;";
 
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                using (SqlCommand command = new SqlCommand(query, _dbCon.Connection))
                 {
                     command.Parameters.AddWithValue("@UserID", userID);
                     var reader = command.ExecuteReader();

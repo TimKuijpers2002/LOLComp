@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<LOLComp.Models.SummonerViewModel>
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_LayoutLOLPage.cshtml";
 }
@@ -7,20 +8,53 @@
 {
     <p class="alert alert-success">@TempData["LoggedIn"]</p>
 }
-@if (TempData["SummonerNotFound"] != null)
+@if (TempData["IndexErrors"] != null)
 {
-    <p class="alert alert-danger">@TempData["SummonerNotFound"]</p>
+    <p class="alert alert-danger">@TempData["IndexErrors"]</p>
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>This is a test</p>
-</div>
-
-<div class="text-center">
     <h1 class="display-4">Enter your summonername</h1>
-    @using (Html.BeginForm("FindSummoner", "User", FormMethod.Get))
+    @using (Html.BeginForm("Index", "LOL", FormMethod.Get))
     {
         @Html.TextBox("summonerName", null, new { @id = "search", @class = "search", @placeholder = "Summonername...", @type = "text" })
     }
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Profile Icon</p>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SummonerLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfileIconID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SummonerLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

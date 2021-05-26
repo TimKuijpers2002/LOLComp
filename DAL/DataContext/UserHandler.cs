@@ -22,15 +22,13 @@ namespace DAL.DataContext
             using (_dbCon.Open())
             {
                 string query = "INSERT INTO [dbo].[User] (Name, Email, Password, Role) VALUES (@Name, @Email, @Password, @Role);";
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
-                {
-                    command.Parameters.AddWithValue("@Name", U1.Name);
-                    command.Parameters.AddWithValue("@Email", U1.Email);
-                    command.Parameters.AddWithValue("@Password", U1.Password);
-                    command.Parameters.AddWithValue("@Role", U1.Role);
+                using SqlCommand command = new SqlCommand(query, _dbCon.Connection);
+                command.Parameters.AddWithValue("@Name", U1.Name);
+                command.Parameters.AddWithValue("@Email", U1.Email);
+                command.Parameters.AddWithValue("@Password", U1.Password);
+                command.Parameters.AddWithValue("@Role", U1.Role);
 
-                    command.ExecuteNonQuery();
-                }
+                command.ExecuteNonQuery();
             }
         }
 
@@ -39,12 +37,10 @@ namespace DAL.DataContext
             using (_dbCon.Open())
             {
                 string query = "DELETE FROM [dbo].[User] WHERE UserID=@UserID";
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
-                {
-                    command.Parameters.AddWithValue("@UserID", UserID);
-                    _dbCon.Open();
-                    command.ExecuteNonQuery();
-                }
+                using SqlCommand command = new SqlCommand(query, _dbCon.Connection);
+                command.Parameters.AddWithValue("@UserID", UserID);
+                _dbCon.Open();
+                command.ExecuteNonQuery();
             }
         }
 
@@ -54,23 +50,21 @@ namespace DAL.DataContext
             using (_dbCon.Open())
             {
                 string query = "SELECT * FROM [dbo].[User]";
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                using SqlCommand command = new SqlCommand(query, _dbCon.Connection);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
+                    UserDTO userDTO = new UserDTO
                     {
-                        UserDTO userDTO = new UserDTO
-                        {
-                            UserID = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            Email = reader.GetString(2),
-                            Password = reader.GetString(3),
-                            Role = reader.GetString(4)
+                        UserID = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Email = reader.GetString(2),
+                        Password = reader.GetString(3),
+                        Role = reader.GetString(4)
 
-                        };
+                    };
 
-                        users.Add(userDTO);
-                    }
+                    users.Add(userDTO);
                 }
             }
             return users;
@@ -81,16 +75,14 @@ namespace DAL.DataContext
             using (_dbCon.Open())
             {
                 string query = "UPDATE [dbo].[User] Set Name = @Name, Email = @Email, Password = @Password, Role = @Role WHERE UserID = @UserID;";
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
-                {
-                    command.Parameters.AddWithValue("@UserID", userID);
-                    command.Parameters.AddWithValue("@Name", U1.Name);
-                    command.Parameters.AddWithValue("@Email", U1.Email);
-                    command.Parameters.AddWithValue("@Password", U1.Password);
-                    command.Parameters.AddWithValue("@Role", U1.Role);
+                using SqlCommand command = new SqlCommand(query, _dbCon.Connection);
+                command.Parameters.AddWithValue("@UserID", userID);
+                command.Parameters.AddWithValue("@Name", U1.Name);
+                command.Parameters.AddWithValue("@Email", U1.Email);
+                command.Parameters.AddWithValue("@Password", U1.Password);
+                command.Parameters.AddWithValue("@Role", U1.Role);
 
-                    command.ExecuteNonQuery();
-                }
+                command.ExecuteNonQuery();
             }
         }
 
@@ -100,25 +92,23 @@ namespace DAL.DataContext
             using (_dbCon.Open())
             {
                 string query = "SELECT * FROM [dbo].[User] WHERE Email = @Email AND Password = @Password;";
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                using SqlCommand command = new SqlCommand(query, _dbCon.Connection);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@Password", password);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Password", password);
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
+                    UserDTO userDTO = new UserDTO
                     {
-                        UserDTO userDTO = new UserDTO
-                        {
-                            UserID = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            Email = reader.GetString(2),
-                            Password = reader.GetString(3),
-                            Role = reader.GetString(4)
+                        UserID = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Email = reader.GetString(2),
+                        Password = reader.GetString(3),
+                        Role = reader.GetString(4)
 
-                        };
+                    };
 
-                        users.Add(userDTO);
-                    }
+                    users.Add(userDTO);
                 }
             }
             return users;
@@ -130,24 +120,22 @@ namespace DAL.DataContext
             using (_dbCon.Open())
             {
                 string query = "SELECT * FROM [dbo].[User] WHERE Email = @Email";
-                using (SqlCommand command = new SqlCommand(query, _dbCon.connection))
+                using SqlCommand command = new SqlCommand(query, _dbCon.Connection);
+                command.Parameters.AddWithValue("@Email", email);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    command.Parameters.AddWithValue("@Email", email);
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
+                    UserDTO userDTO = new UserDTO
                     {
-                        UserDTO userDTO = new UserDTO
-                        {
-                            UserID = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            Email = reader.GetString(2),
-                            Password = reader.GetString(3),
-                            Role = reader.GetString(4)
+                        UserID = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Email = reader.GetString(2),
+                        Password = reader.GetString(3),
+                        Role = reader.GetString(4)
 
-                        };
+                    };
 
-                        users.Add(userDTO);
-                    }
+                    users.Add(userDTO);
                 }
             }
             return users;
@@ -157,8 +145,7 @@ namespace DAL.DataContext
         {
             using (_dbCon.Open())
             {
-
-                using SqlCommand command = new SqlCommand("spValidateUserLogin", _dbCon.connection)
+                using SqlCommand command = new SqlCommand("spValidateUserLogin", _dbCon.Connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };

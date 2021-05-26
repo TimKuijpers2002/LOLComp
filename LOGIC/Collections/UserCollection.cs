@@ -6,20 +6,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LOGIC.ModelConverters;
+using LOGIC.Validations;
+
 namespace LOGIC.Collections
 {
     public class UserCollection
     {
-        private DTOAndLOGICConverters converter;
+        private readonly DTOAndLOGICConverters converter;
         private List<User> users;
+        private readonly UserValidation userValidations;
 
         public UserCollection()
         {
             converter = new DTOAndLOGICConverters();
+            userValidations = new UserValidation();
         }
         public void CreateUser(User user)
         {
-            Factory.UserConnectionHandler.CreateUser(converter.ConvertToUserDTO(user));
+            if (!userValidations.CheckIfUserExists(user.Email))
+            {
+                Factory.UserConnectionHandler.CreateUser(converter.ConvertToUserDTO(user));
+            }
+            else
+            {
+                throw new Exception("This email is already in use, try a different one");
+            }
         }
 
         public List<User> GetUsers()

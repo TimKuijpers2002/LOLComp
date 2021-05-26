@@ -16,14 +16,12 @@ namespace LOLComp.Controllers
     public class UserController : Controller
     {
         private readonly LOGICAndViewModelConverter converter;
-        private readonly UserValidation validator;
         private readonly UserCollection userCollection;
         private readonly SummonerCollection summonerCollection;
         public UserController()
         {
             converter = new LOGICAndViewModelConverter();
             userCollection = new UserCollection();
-            validator = new UserValidation();
             summonerCollection = new SummonerCollection();
         }
         public IActionResult Index()
@@ -40,20 +38,19 @@ namespace LOLComp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(UserModel viewModel)
+        public IActionResult Update(UserViewModel viewModel)
         {
             var userToUpdate = userCollection.GetUserByEmail(User.FindFirstValue(ClaimTypes.Email));
-            if (!validator.CheckIfUserExists(viewModel.Email))
+            try
             {
                 userToUpdate.UpdateUser(converter.ConvertToUser(viewModel, userToUpdate.Role), userToUpdate.UserID);
                 return RedirectToAction("Logout", "User");
             }
-            else if(validator.CheckIfUserExists(viewModel.Email))
+            catch(Exception ex)
             {
-                TempData["Updated"] = "This email adress is already in use!";
+                TempData["Updated"] = ex.Message;
                 return View();
             }
-            return RedirectToAction("Index", "LOL");
         }
 
         [HttpGet]
@@ -67,20 +64,19 @@ namespace LOLComp.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (!validator.CheckIfUserExists(viewModel.Email))
+                try
                 {
                     userCollection.CreateUser(UserRegisterViewModel.ConvertViewModelToModel(viewModel));
                     TempData["Registrated"] = "You have succesfully registarted, you can now login!";
                     return RedirectToAction("Login");
                 }
-                else
+                catch(Exception ex)
                 {
-                    TempData["Registrated"] = "This user already exists, please login!";
+                    TempData["Registrated"] = ex.Message;
                     return View();
                 }
             }
-            return RedirectToAction("Index", "Home");
-           
+            return RedirectToAction("Index", "Home");      
         }
 
         [HttpGet]
@@ -95,47 +91,54 @@ namespace LOLComp.Controllers
         {
             if (ModelState.IsValid)
             {
-                string LoginStatus = userCollection.ValidateLogin(UserLoginViewModel.ConvertViewModelToModel(userViewModel));
-
-                if (LoginStatus == "Success")
+                try
                 {
-                    var all = userCollection.GetUsers();
-                    var list = new List<UserModel>();
-                    if (userViewModel.Email != null)
+                    string LoginStatus = userCollection.ValidateLogin(UserLoginViewModel.ConvertViewModelToModel(userViewModel));
+                    if (LoginStatus == "Success")
                     {
-                        for (int i = 0; i < all.Count; i++)
+                        var all = userCollection.GetUsers();
+                        var list = new List<UserViewModel>();
+                        if (userViewModel.Email != null)
                         {
-                            if (userViewModel.Email == all[i].Email)
+                            for (int i = 0; i < all.Count; i++)
                             {
-                                list.Add(new UserModel
+                                if (userViewModel.Email == all[i].Email)
                                 {
-                                    UserID = all[i].UserID,
-                                    Name = all[i].Name,
-                                    Email = all[i].Email,
-                                    Password = all[i].Password,
-                                    Role = all[i].Role
-                                });
+                                    list.Add(new UserViewModel
+                                    {
+                                        UserID = all[i].UserID,
+                                        Name = all[i].Name,
+                                        Email = all[i].Email,
+                                        Password = all[i].Password,
+                                        Role = all[i].Role
+                                    });
 
-                                var claims = new List<Claim>
+                                    var claims = new List<Claim>
                                 {
                                     new Claim(ClaimTypes.Email, userViewModel.Email),
                                     new Claim(ClaimTypes.Role, all[i].Role),
                                 };
-                                ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "login");
-                                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                                    ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "login");
+                                    ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
 
-                                await HttpContext.SignInAsync(principal);
-                                TempData["LoggedIn"] = "You have logged in with your personal account.";
-                                return RedirectToAction("Index", "Home");
+                                    await HttpContext.SignInAsync(principal);
+                                    TempData["LoggedIn"] = "You have logged in with your personal account.";
+                                    return RedirectToAction("Index", "Home");
 
+                                }
                             }
                         }
                     }
+                    else
+                    {
+                        TempData["UserLoginFailed"] = "Login Failed.Please enter correct credentials";
+                        return View();
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    TempData["UserLoginFailed"] = "Login Failed.Please enter correct credentials";
-                    return View();
+                    TempData["NoConnectionToDB"] = ex.Message;
+                    return RedirectToAction("Index", "Home");
                 }
             }
             return View();
@@ -147,21 +150,6 @@ namespace LOLComp.Controllers
             TempData["UserLogout"] = "You have logged out!";
             await HttpContext.SignOutAsync();
             return RedirectToAction("Login", "User");
-        }
-
-        public async Task<IActionResult> FindSummoner(string summonerName)
-        {
-            try
-            {
-                var summoner = await summonerCollection.FindSummonerByName(summonerName);
-                
-            }
-            catch (Exception ex)
-            {
-                TempData["SummonerNotFound"] = ex.Message;
-            }
-            
-            return RedirectToAction("Index", "LOL");
         }
     }
 }

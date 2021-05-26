@@ -21,12 +21,12 @@ namespace LOLComp.Controllers
         }
         public IActionResult Index()
         {
-            var groupViewModelList = new List<GroupModel>();
+            var groupViewModelList = new List<GroupViewModel>();
             var userID = userCollection.GetUserByEmail(User.FindFirstValue(ClaimTypes.Email)).UserID;
             var groupModels = groupCollection.GetGroupsWithUserID(userID);
             foreach(var group in groupModels)
             {
-                var GroupViewModel = new GroupModel()
+                var GroupViewModel = new GroupViewModel()
                 {
                     GroupName = group.Name
                 };

@@ -9,15 +9,16 @@ namespace LOGIC.Models
 {
     public class Summoner
     {
-        public string ID { get; set; }
-        public string AccountID { get; set; }
-        public string PuuID { get; set; }
-        public string Name { get; set; }
-        public int ProfileIconID { get; set; }
-        public long RevisionDate { get; set; }
-        public int SummonerLevel { get; set; }
+        public string ID { get; private set; }
+        public string AccountID { get; private set; }
+        public string PuuID { get; private set; }
+        public string Name { get; private set; }
+        public int ProfileIconID { get; private set; }
+        public long RevisionDate { get; private set; }
+        public int SummonerLevel { get; private set; }
+        public string Region { get; private set; }
 
-        public Summoner(string id, string accountID, string puuID, string name, int profileIconID, long revisionDate, int summonerLevel)
+        public Summoner(string id, string accountID, string puuID, string name, int profileIconID, long revisionDate, int summonerLevel, string region)
         {
             ID = id;
             AccountID = accountID;
@@ -26,12 +27,7 @@ namespace LOGIC.Models
             ProfileIconID = profileIconID;
             RevisionDate = revisionDate;
             SummonerLevel = summonerLevel;
-        }
-
-        public Summoner(SummonerDTO summonerDTO)
-            : this(summonerDTO.ID, summonerDTO.AccountID, summonerDTO.PuuID, summonerDTO.Name, summonerDTO.ProfileIconID, summonerDTO.RevisionDate,summonerDTO.SummonerLevel)
-        {
-
+            Region = region;
         }
     }
 }

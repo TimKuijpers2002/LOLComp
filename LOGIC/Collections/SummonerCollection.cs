@@ -18,10 +18,15 @@ namespace LOGIC.Collections
             converter = new DTOAndLOGICConverters();
         }
 
-        public async Task<Summoner> FindSummonerByName(string summonerName)
+        public async Task<List<Summoner>> FindSummonerByName(string summonerName)
         {
-            var summonerDTO = await Factory.RequesterConnectionHandler.RequestSummonerData(summonerName);
-            return converter.ConvertToSummoner(summonerDTO);
+            var summonerList = new List<Summoner>();
+            var summonerDTOs = await Factory.RequesterConnectionHandler.RequestSummonerData(summonerName);
+            foreach(var summonerDTO in summonerDTOs)
+            {
+                summonerList.Add(converter.ConvertToSummoner(summonerDTO));
+            }
+            return summonerList;
         }
     }
 }

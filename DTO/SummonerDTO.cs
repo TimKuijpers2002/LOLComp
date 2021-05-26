@@ -13,5 +13,6 @@ namespace DTO
         public int ProfileIconID { get; set; }
         public long RevisionDate { get; set; }
         public int SummonerLevel { get; set; }
+        public string Region { get; set; }
     }
 }

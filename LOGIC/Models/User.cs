@@ -1,6 +1,7 @@
 ﻿using DAL_Factory;
 using DTO;
 using LOGIC.ModelConverters;
+using LOGIC.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace LOGIC.Models
     public class User
     {
         private DTOAndLOGICConverters converter;
+        private UserValidation userValidations;
+
         public int UserID { get; private set; }
         public string Name { get; private set; }
         public string Email { get; private set; }
@@ -28,8 +31,17 @@ namespace LOGIC.Models
 
         public void UpdateUser(User user, int userID)
         {
+            userValidations = new UserValidation();
             converter = new DTOAndLOGICConverters();
-            Factory.UserConnectionHandler.UpdateUser(converter.ConvertToUserDTO(user), userID);
+
+            if (!userValidations.CheckIfUserExists(user.Email))
+            {
+                Factory.UserConnectionHandler.UpdateUser(converter.ConvertToUserDTO(user), userID);
+            }
+            else
+            {
+                throw new Exception("This email is already in use, try a different one");
+            }
         }
     }
 }

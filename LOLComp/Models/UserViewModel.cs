@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LOLComp.Models
 {
-    public class UserModel
+    public class UserViewModel
     {
         public int UserID { get; set; }
         [Display(Name = "Name")]

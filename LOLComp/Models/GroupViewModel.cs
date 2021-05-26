@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LOLComp.Models
 {
-    public class GroupModel
+    public class GroupViewModel
     {
         public int GroupID { get; set; }
         public string GroupName { get; set; }
