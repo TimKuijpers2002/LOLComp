@@ -56,11 +56,11 @@ namespace DAL.DataContext
                 {
                     UserDTO userDTO = new UserDTO
                     {
-                        UserID = reader.GetInt32(0),
-                        Name = reader.GetString(1),
-                        Email = reader.GetString(2),
-                        Password = reader.GetString(3),
-                        Role = reader.GetString(4)
+                        UserID = Convert.ToInt32(reader["UserID"]),
+                        Name = Convert.ToString(reader["Name"]),
+                        Email = Convert.ToString(reader["Email"]),
+                        Password = Convert.ToString(reader["Password"]),
+                        Role = Convert.ToString(reader["Role"])
 
                     };
 
@@ -100,11 +100,11 @@ namespace DAL.DataContext
                 {
                     UserDTO userDTO = new UserDTO
                     {
-                        UserID = reader.GetInt32(0),
-                        Name = reader.GetString(1),
-                        Email = reader.GetString(2),
-                        Password = reader.GetString(3),
-                        Role = reader.GetString(4)
+                        UserID = Convert.ToInt32(reader["UserID"]),
+                        Name = Convert.ToString(reader["Name"]),
+                        Email = Convert.ToString(reader["Email"]),
+                        Password = Convert.ToString(reader["Password"]),
+                        Role = Convert.ToString(reader["Role"])
 
                     };
 
@@ -127,11 +127,11 @@ namespace DAL.DataContext
                 {
                     UserDTO userDTO = new UserDTO
                     {
-                        UserID = reader.GetInt32(0),
-                        Name = reader.GetString(1),
-                        Email = reader.GetString(2),
-                        Password = reader.GetString(3),
-                        Role = reader.GetString(4)
+                        UserID = Convert.ToInt32(reader["UserID"]),
+                        Name = Convert.ToString(reader["Name"]),
+                        Email = Convert.ToString(reader["Email"]),
+                        Password = Convert.ToString(reader["Password"]),
+                        Role = Convert.ToString(reader["Role"])
 
                     };
 

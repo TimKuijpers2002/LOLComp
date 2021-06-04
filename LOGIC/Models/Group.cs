@@ -12,11 +12,15 @@ namespace LOGIC.Models
         private DTOAndLOGICConverters converter;
         public int GroupID { get; private set; }
         public string Name { get; private set; }
+        public string Email { get; private set; }
+        public string SummonerAccountID { get; private set; }
 
-        public Group(int groupID, string name)
+        public Group(int groupID, string name, string email, string summonerAccountID)
         {
             GroupID = groupID;
             Name = name;
+            Email = email;
+            SummonerAccountID = summonerAccountID;
         }
 
         public void UpdateGroup(Group group)

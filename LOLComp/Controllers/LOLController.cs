@@ -15,12 +15,14 @@ namespace LOLComp.Controllers
     public class LOLController : Controller
     {
         private readonly SummonerCollection summonerCollection;
+        private readonly MatchCollection matchCollection;
         private readonly LOGICAndViewModelConverter converter;
 
         public LOLController()
         {
             summonerCollection = new SummonerCollection();
             converter = new LOGICAndViewModelConverter();
+            matchCollection = new MatchCollection();
         }
 
         [HttpGet]
@@ -41,10 +43,56 @@ namespace LOLComp.Controllers
                 catch (Exception ex)
                 {
                     TempData["IndexErrors"] = ex.Message;
+                    return RedirectToAction("Index", "Home");
                 }
             }
 
             return View(summonerViewModels);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Matches(SummonerViewModel summonerViewModel)
+        {
+            var matchViewModels = new List<MatchViewModel>();
+
+            try
+            {
+                var matchList = await matchCollection.GetMatchHistory(summonerViewModel.Name, summonerViewModel.Region);
+                foreach (var match in matchList)
+                {
+                    matchViewModels.Add(converter.ConvertToMatchViewModel(match));
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["IndexErrors"] = ex.Message;
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(matchViewModels);
+        }
+
+        public async Task<IActionResult> Profile(string summonerName, string region)
+        {
+            SummonerViewModel summonerViewModel = new SummonerViewModel();
+            if (summonerName != null)
+            {
+                try
+                {
+                    var summoner = await summonerCollection.FindSummonerByNameAndRegion(summonerName, region);
+                    var matches = await matchCollection.GetMatchHistory(summoner.AccountID, region);
+
+                    summonerViewModel = converter.ConvertToSummonerViewModel(summoner);
+                    summonerViewModel.Matches(matches);
+                }
+                catch (Exception ex)
+                {
+                    TempData["IndexErrors"] = ex.Message;
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+
+            return View(summonerViewModel);
         }
     }
 }

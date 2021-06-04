@@ -9,21 +9,22 @@ namespace LOLComp.ModelConverters
 {
     public class LOGICAndViewModelConverter
     {
-        private User user { get; set; }
-        private UserViewModel userViewModel { get; set; }
-        private Group group { get; set; }
-        private GroupViewModel groupViewModel { get; set; }
-        private SummonerViewModel summonerViewModel { get; set; }
+        private User User { get; set; }
+        private UserViewModel UserViewModel { get; set; }
+        private Group Group { get; set; }
+        private GroupViewModel GroupViewModel { get; set; }
+        private SummonerViewModel SummonerViewModel { get; set; }
+        private MatchViewModel MatchViewModel { get; set; }
 
         public User ConvertToUser(UserViewModel userViewModel, string role)
         {
-            user = new User(userViewModel.UserID, userViewModel.Name, userViewModel.Email, userViewModel.Password, role);
-            return user;
+            User = new User(userViewModel.UserID, userViewModel.Name, userViewModel.Email, userViewModel.Password, role);
+            return User;
         }
 
         public UserViewModel ConvertToUserViewModel(User user)
         {
-            userViewModel = new UserViewModel()
+            UserViewModel = new UserViewModel()
             {
                 UserID = user.UserID,
                 Name = user.Name,
@@ -31,35 +32,51 @@ namespace LOLComp.ModelConverters
                 Password = user.Password,
                 Role = user.Role
             };
-            return userViewModel;
+            return UserViewModel;
         }
 
         public Group ConvertToGroup(GroupViewModel groupViewModel)
         {
-            group = new Group(groupViewModel.GroupID, groupViewModel.GroupName);
-            return group;
+            Group = new Group(groupViewModel.GroupID, groupViewModel.GroupName, groupViewModel.Email, groupViewModel.SummonerAccountID);
+            return Group;
         }
 
         public GroupViewModel ConvertToGroupViewModel(Group group)
         {
-            groupViewModel = new GroupViewModel()
+            GroupViewModel = new GroupViewModel()
             {
                 GroupID = group.GroupID,
-                GroupName = group.Name
+                GroupName = group.Name,
+                Email = group.Email,
+                SummonerAccountID = group.SummonerAccountID
             };
-            return groupViewModel;
+            return GroupViewModel;
         }
 
         public SummonerViewModel ConvertToSummonerViewModel(Summoner summoner)
         {
-            summonerViewModel = new SummonerViewModel()
+            SummonerViewModel = new SummonerViewModel()
             {
                 Name = summoner.Name,
                 ProfileIconID = summoner.ProfileIconID,
                 SummonerLevel = summoner.SummonerLevel,
-                Region = summoner.Region
+                Region = summoner.Region,
             };
-            return summonerViewModel;
+            return SummonerViewModel;
+        }
+
+        public MatchViewModel ConvertToMatchViewModel(Match match)
+        {
+            MatchViewModel = new MatchViewModel()
+            {
+                Role = match.Role,
+                Season = match.Season,
+                PlatformID = match.PlatformID,
+                Champion = match.Champion,
+                Lane = match.Lane,
+                Timestamp = match.Timestamp
+            };
+            return MatchViewModel;
         }
     }
 }

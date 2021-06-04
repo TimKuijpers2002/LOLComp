@@ -14,6 +14,8 @@ namespace LOGIC.ModelConverters
         private GroupDTO GroupDTO { get; set; }
         private Summoner Summoner { get; set; }
         private SummonerDTO SummonerDTO { get; set; }
+        private Match Match { get; set; }
+        private MatchDTO MatchDTO { get; set; }
 
         public User ConvertToUser(UserDTO userDTO)
         {
@@ -36,7 +38,7 @@ namespace LOGIC.ModelConverters
 
         public Group ConvertToGroup(GroupDTO groupDTO)
         {
-            Group = new Group(groupDTO.GroupID, groupDTO.Name);
+            Group = new Group(groupDTO.GroupID, groupDTO.Name, groupDTO.Email, groupDTO.SummonerAccountID);
             return Group;
         }
 
@@ -45,7 +47,9 @@ namespace LOGIC.ModelConverters
             GroupDTO = new GroupDTO()
             {
                 GroupID = group.GroupID,
-                Name = group.Name
+                Name = group.Name,
+                Email = group.Email,
+                SummonerAccountID = group.SummonerAccountID
             };
             return GroupDTO;
         }
@@ -56,7 +60,7 @@ namespace LOGIC.ModelConverters
             return Summoner;
         }
 
-        public SummonerDTO ConvertToGroupDTO(Summoner summoner)
+        public SummonerDTO ConvertToSummonerDTO(Summoner summoner)
         {
             SummonerDTO = new SummonerDTO()
             {
@@ -69,6 +73,28 @@ namespace LOGIC.ModelConverters
                 SummonerLevel = summoner.SummonerLevel
             };
             return SummonerDTO;
+        }
+
+        public Match ConvertToMatch(MatchDTO matchDTO)
+        {
+            Match = new Match(matchDTO.gameId, matchDTO.role, matchDTO.season, matchDTO.platformId, matchDTO.champion, matchDTO.queue, matchDTO.lane, matchDTO.timestamp);
+            return Match;
+        }
+
+        public MatchDTO ConvertToMatchDTO(Match match)
+        {
+            MatchDTO = new MatchDTO()
+            {
+                gameId = match.GameId,
+                role = match.Role,
+                season = match.Season,
+                platformId = match.PlatformID,
+                champion = match.Champion,
+                queue = match.Queue,
+                lane = match.Lane,
+                timestamp = match.Timestamp
+            };
+            return MatchDTO;
         }
     }
 }

@@ -46,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.ProfileIconID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.ActionLink(item.Name, "Profile", new { summonerName = item.Name, region = item.Region })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SummonerLevel)

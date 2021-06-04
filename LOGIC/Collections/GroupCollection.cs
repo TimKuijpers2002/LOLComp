@@ -12,17 +12,15 @@ namespace LOGIC.Collections
     public class GroupCollection
     {
         private DTOAndLOGICConverters converter;
-        private UserCollection userCollection;
         private List<Group> groups;
 
         public GroupCollection()
         {
             converter = new DTOAndLOGICConverters();
         }
-        public void CreateGroup(Group group)
+        public void CreateGroup(Group group, User user)
         {
-            //FIX het tempID in controller nog!
-            Factory.GroupConnectionHandler.CreateGroup(converter.ConvertToGroupDTO(group));
+            Factory.GroupConnectionHandler.CreateGroup(converter.ConvertToGroupDTO(group), converter.ConvertToUserDTO(user));
         }
 
         public List<Group> GetGroups()
@@ -47,11 +45,9 @@ namespace LOGIC.Collections
             return groups;
         }
 
-        public void DeleteGroup(string email, string name)
+        public void DeleteGroup(User user, string name)
         {
-            userCollection = new UserCollection();
-            var userDTO = userCollection.GetUserByEmail(email);
-            var groupDTOs = GetGroupsWithUserID(userDTO.UserID);
+            var groupDTOs = GetGroupsWithUserID(user.UserID);
             var groupToDelete = groupDTOs.Where(g => g.Name == name).ToList().First();
             Factory.GroupConnectionHandler.DeleteGroup(groupToDelete.GroupID);
         }

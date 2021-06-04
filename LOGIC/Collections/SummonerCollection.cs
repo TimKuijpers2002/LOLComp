@@ -28,5 +28,13 @@ namespace LOGIC.Collections
             }
             return summonerList;
         }
+
+        public async Task<Summoner> FindSummonerByNameAndRegion(string summonerName, string region)
+        {
+            var summonerDTO = await Factory.RequesterConnectionHandler.RequestSummonerDataWithRegion(summonerName, region);
+            var summoner = converter.ConvertToSummoner(summonerDTO);
+
+            return summoner;
+        }
     }
 }

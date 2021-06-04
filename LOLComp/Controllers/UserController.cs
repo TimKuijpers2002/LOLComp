@@ -9,6 +9,7 @@ using LOGIC.Validations;
 using LOLComp.ModelConverters;
 using LOLComp.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LOLComp.Controllers
@@ -17,13 +18,13 @@ namespace LOLComp.Controllers
     {
         private readonly LOGICAndViewModelConverter converter;
         private readonly UserCollection userCollection;
-        private readonly SummonerCollection summonerCollection;
         public UserController()
         {
             converter = new LOGICAndViewModelConverter();
             userCollection = new UserCollection();
-            summonerCollection = new SummonerCollection();
         }
+
+        [Authorize(Roles = "User")]
         public IActionResult Index()
         {
             var userModel = userCollection.GetUserByEmail(User.FindFirstValue(ClaimTypes.Email));
@@ -31,12 +32,14 @@ namespace LOLComp.Controllers
             return View(userViewModel);
         }
 
+        [Authorize(Roles = "User")]
         [HttpGet]
         public IActionResult Update()
         {
             return View();
         }
 
+        [Authorize(Roles = "User")]
         [HttpPost]
         public IActionResult Update(UserViewModel viewModel)
         {
@@ -104,20 +107,14 @@ namespace LOLComp.Controllers
                             {
                                 if (userViewModel.Email == all[i].Email)
                                 {
-                                    list.Add(new UserViewModel
-                                    {
-                                        UserID = all[i].UserID,
-                                        Name = all[i].Name,
-                                        Email = all[i].Email,
-                                        Password = all[i].Password,
-                                        Role = all[i].Role
-                                    });
+                                    list.Add(converter.ConvertToUserViewModel(all[i]));
 
                                     var claims = new List<Claim>
-                                {
+                                    {
                                     new Claim(ClaimTypes.Email, userViewModel.Email),
                                     new Claim(ClaimTypes.Role, all[i].Role),
-                                };
+                                    };
+
                                     ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "login");
                                     ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
 
@@ -144,12 +141,13 @@ namespace LOLComp.Controllers
             return View();
         }
 
+        [Authorize(Roles = "User")]
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
             TempData["UserLogout"] = "You have logged out!";
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Login", "User");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LOLComp.Models.MatchViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Season)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlatformID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Champion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lane)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timestamp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Season)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlatformID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Champion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lane)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timestamp)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

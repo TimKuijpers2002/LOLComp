@@ -20,7 +20,7 @@ namespace DAL.DataContext
         public SqlConnection Open()
         {
             Connection = new SqlConnection(connectionString);
-            if (!isAvailable(Connection))
+            if (!IsAvailable(Connection))
             {
                 throw new Exception("There was an error trying to form a connection, try again later");
             }
@@ -28,7 +28,7 @@ namespace DAL.DataContext
             return Connection;
         }
 
-        private bool isAvailable(SqlConnection connection)
+        private bool IsAvailable(SqlConnection connection)
         {
             try
             {
