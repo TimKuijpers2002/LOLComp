@@ -4,22 +4,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Role)
+                @Html.DisplayNameFor(model => model.gameType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Season)
+                @Html.DisplayNameFor(model => model.gameDuration)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PlatformID)
+                @Html.DisplayNameFor(model => model.platformId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Champion)
+                @Html.DisplayNameFor(model => model.seasonId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lane)
+                @Html.DisplayNameFor(model => model.gameVersion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Timestamp)
+                @Html.DisplayNameFor(model => model.mapId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gameMode)
             </th>
             <th></th>
         </tr>
@@ -28,22 +31,28 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Role)
+                @Html.DisplayFor(modelItem => item.gameType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Season)
+                @Html.DisplayFor(modelItem => item.gameDuration)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PlatformID)
+                @Html.DisplayFor(modelItem => item.platformId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Champion)
+                @Html.DisplayFor(modelItem => item.seasonId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lane)
+                @Html.DisplayFor(modelItem => item.gameVersion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Timestamp)
+                @Html.DisplayFor(modelItem => item.mapId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gameMode)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

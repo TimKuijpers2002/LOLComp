@@ -125,7 +125,7 @@ namespace DAL.APIContext
             {
                 foreach(var match in matchListNoStats)
                 {
-                    await RequestMatchStats(region, match.gameId);
+                    matchListStats.Add(await RequestMatchStats(region, match.gameId));
                 }
                 return matchListStats;
             }

@@ -15,3 +15,4 @@ C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main 
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.CopyComplete
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.dll
 C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.pdb
+C:\Users\TimKu\OneDrive\Bureaublad\Semester 2.3\Maatwerk files\Individueel\Main Project\LOLComp\LOGIC\obj\Debug\netcoreapp3.1\LOGIC.csproj.CoreCompileInputs.cache

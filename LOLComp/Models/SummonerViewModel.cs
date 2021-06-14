@@ -18,22 +18,22 @@ namespace LOLComp.Models
             matchViewModels = new List<MatchViewModel>();
         }
 
-        public List<MatchViewModel> Matches(List<Match> matches)
-        {
-            foreach(var match in matches)
-            {
-                MatchViewModel viewModel = new MatchViewModel()
-                {
-                    Role = match.Role,
-                    Season = match.Season,
-                    PlatformID = match.PlatformID,
-                    Champion = match.Champion,
-                    Lane = match.Lane,
-                    Timestamp = match.Timestamp
-                };
-                matchViewModels.Add(viewModel);
-            }
-            return matchViewModels;
-        }
+        //public List<MatchViewModel> Matches(List<Match> matches)
+        //{
+        //    foreach(var match in matches)
+        //    {
+        //        MatchViewModel viewModel = new MatchViewModel()
+        //        {
+        //            Role = match.Role,
+        //            Season = match.Season,
+        //            PlatformID = match.PlatformID,
+        //            Champion = match.Champion,
+        //            Lane = match.Lane,
+        //            Timestamp = match.Timestamp
+        //        };
+        //        matchViewModels.Add(viewModel);
+        //    }
+        //    return matchViewModels;
+        //}
     }
 }

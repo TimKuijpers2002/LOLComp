@@ -1,4 +1,5 @@
-﻿using DAL_Factory;
+﻿using AutoMapper;
+using DAL_Factory;
 using LOGIC.ModelConverters;
 using LOGIC.Models;
 using System;
@@ -11,10 +12,12 @@ namespace LOGIC.Collections
     public class MatchCollection
     {
         private readonly DTOAndLOGICConverters converter;
+        private readonly IMapper _mapper;
 
-        public MatchCollection()
+        public MatchCollection(IMapper mapper)
         {
             converter = new DTOAndLOGICConverters();
+            _mapper = mapper;
         }
         public async Task<List<Match>> GetMatchHistory(string summonerAccountID, string region)
         {
@@ -22,7 +25,8 @@ namespace LOGIC.Collections
             var matchDTOs = await Factory.RequesterConnectionHandler.RequestSummonerMatchHistory(region, summonerAccountID);
             foreach (var matchDTO in matchDTOs)
             {
-                //matchList.Add(converter.ConvertToMatch(matchDTO));
+                var match = _mapper.Map<Match>(matchDTO);
+                matchList.Add(match);
             }
             return matchList;
         }

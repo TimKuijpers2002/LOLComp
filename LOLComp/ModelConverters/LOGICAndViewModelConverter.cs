@@ -14,7 +14,6 @@ namespace LOLComp.ModelConverters
         private Group Group { get; set; }
         private GroupViewModel GroupViewModel { get; set; }
         private SummonerViewModel SummonerViewModel { get; set; }
-        private MatchViewModel MatchViewModel { get; set; }
 
         public User ConvertToUser(UserViewModel userViewModel, string role)
         {
@@ -63,20 +62,6 @@ namespace LOLComp.ModelConverters
                 Region = summoner.Region,
             };
             return SummonerViewModel;
-        }
-
-        public MatchViewModel ConvertToMatchViewModel(Match match)
-        {
-            MatchViewModel = new MatchViewModel()
-            {
-                Role = match.Role,
-                Season = match.Season,
-                PlatformID = match.PlatformID,
-                Champion = match.Champion,
-                Lane = match.Lane,
-                Timestamp = match.Timestamp
-            };
-            return MatchViewModel;
         }
     }
 }

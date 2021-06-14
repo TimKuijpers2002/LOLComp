@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO.APIDto_s;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,26 +7,15 @@ namespace LOGIC.Models
 {
     public class Match
     {
-        public long GameId { get; private set; }
-        public string Role { get; private set; }
-        public int Season { get; private set; }
-        public string PlatformID { get; private set; }
-        public int Champion { get; private set; }
-        public int Queue { get; private set; }
-        public string Lane { get; private set; }
-        public long Timestamp { get; private set; }
-
-        public Match(long gameID, string role, int season, string platformID, int champion, int queue, string lane, long timestamp)
-        {
-            GameId = gameID;
-            Role = role;
-            Season = season;
-            PlatformID = platformID;
-            Champion = champion;
-            Queue = queue;
-            Lane = lane;
-            Timestamp = timestamp;
-
-        }
+        public List<ParticipantIdentityDto> participantIdentities { get; private set; }
+        public string gameType { get; private set; }
+        public long gameDuration { get; private set; }
+        public List<TeamStatsDto> teams { get; private set; }
+        public string platformId { get; private set; }
+        public int seasonId { get; private set; }
+        public string gameVersion { get; private set; }
+        public int mapId { get; set; }
+        public string gameMode { get; private set; }
+        public List<ParticipantDto> participants { get; private set; }
     }
 }

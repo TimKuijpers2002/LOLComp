@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using LOGIC.Collections;
 using LOLComp.ModelConverters;
 using LOLComp.Models;
@@ -14,15 +15,17 @@ namespace LOLComp.Controllers
 
     public class LOLController : Controller
     {
+        private readonly IMapper _mapper;
         private readonly SummonerCollection summonerCollection;
         private readonly MatchCollection matchCollection;
         private readonly LOGICAndViewModelConverter converter;
 
-        public LOLController()
+        public LOLController(IMapper mapper)
         {
+            _mapper = mapper;
             summonerCollection = new SummonerCollection();
             converter = new LOGICAndViewModelConverter();
-            matchCollection = new MatchCollection();
+            matchCollection = new MatchCollection(_mapper);
         }
 
         [HttpGet]
@@ -60,7 +63,7 @@ namespace LOLComp.Controllers
                 var matchList = await matchCollection.GetMatchHistory(summonerViewModel.Name, summonerViewModel.Region);
                 foreach (var match in matchList)
                 {
-                    matchViewModels.Add(converter.ConvertToMatchViewModel(match));
+                    matchViewModels.Add(_mapper.Map<MatchViewModel>(match));
                 }
             }
             catch (Exception ex)
@@ -83,7 +86,10 @@ namespace LOLComp.Controllers
                     var matches = await matchCollection.GetMatchHistory(summoner.AccountID, region);
 
                     summonerViewModel = converter.ConvertToSummonerViewModel(summoner);
-                    summonerViewModel.Matches(matches);
+                    foreach(var match in matches)
+                    {
+                        summonerViewModel.matchViewModels.Add(_mapper.Map<MatchViewModel>(match));
+                    }
                 }
                 catch (Exception ex)
                 {
