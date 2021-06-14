@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using DTO.APIDto_s;
 
 namespace DAL.APIContext
 {
@@ -101,10 +102,11 @@ namespace DAL.APIContext
 
         }
 
-        public async Task<List<MatchDTO>> RequestSummonerMatchHistory(string region, string summonerAccountID)
+        public async Task<List<MatchDto>> RequestSummonerMatchHistory(string region, string summonerAccountID)
         {
             var apiKey = apiKeyHandler.UseRiotKey();
-            var matchList = new List<MatchDTO>();
+            var matchListNoStats = new List<MatchWithoutStatsDto>();
+            var matchListStats = new List<MatchDto>();
 
             var URL = "https://" + region + ".api.riotgames.com/lol/match/v4/matchlists/by-account/" + summonerAccountID+ "?endIndex=10&api_key=" + apiKey;
 
@@ -116,18 +118,41 @@ namespace DAL.APIContext
 
                 var jsonDoc = JsonDocument.Parse(s);
                 var matchesElement = jsonDoc.RootElement.GetProperty("matches").GetRawText();
-                matchList = JsonSerializer.Deserialize<List<MatchDTO>>(matchesElement);
+                matchListNoStats = JsonSerializer.Deserialize<List<MatchWithoutStatsDto>>(matchesElement);
             }
             
-            if (matchList.Any())
+            if (matchListNoStats.Any())
             {
-                return matchList;
+                foreach(var match in matchListNoStats)
+                {
+                    await RequestMatchStats(region, match.gameId);
+                }
+                return matchListStats;
             }
             else
             {
                 throw Exception("The match history of this summoner could not be found");
             }
 
+        }
+
+        public async Task<MatchDto> RequestMatchStats(string region, long matchID)
+        {
+            var apiKey = apiKeyHandler.UseRiotKey();
+            var match = new MatchDto();
+
+            var URL = "https://" + region + ".api.riotgames.com/lol/match/v4/matches/" + matchID + "?api_key=" + apiKey;
+
+            using var client = new HttpClient();
+            var response = await client.GetAsync(URL);
+            if (response.IsSuccessStatusCode)
+            {
+                string s = await response.Content.ReadAsStringAsync();
+
+                var jsonDoc = JsonDocument.Parse(s);
+                match = JsonSerializer.Deserialize<MatchDto>(await response.Content.ReadAsStringAsync());
+            }
+            return match;
         }
     }
 }

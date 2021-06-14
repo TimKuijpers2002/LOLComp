@@ -22,7 +22,7 @@ namespace LOGIC.Collections
             var matchDTOs = await Factory.RequesterConnectionHandler.RequestSummonerMatchHistory(region, summonerAccountID);
             foreach (var matchDTO in matchDTOs)
             {
-                matchList.Add(converter.ConvertToMatch(matchDTO));
+                //matchList.Add(converter.ConvertToMatch(matchDTO));
             }
             return matchList;
         }

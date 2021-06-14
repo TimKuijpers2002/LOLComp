@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.APIDto_s;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Interfaces.Interfaces
     {
         Task<List<SummonerDTO>> RequestSummonerData(string summonerName);
         Task<SummonerDTO> RequestSummonerDataWithRegion(string summonerName, string region);
-        Task<List<MatchDTO>> RequestSummonerMatchHistory(string region, string summonerAccountID);
+        Task<List<MatchDto>> RequestSummonerMatchHistory(string region, string summonerAccountID);
+        Task<MatchDto> RequestMatchStats(string region, long matchID);
     }
 }

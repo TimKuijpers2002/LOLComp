@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BdK+j+BLl0RlZSksH0UjBH2V26E1DPdTjJ/XGoDcobsoMnOZ62x6U8Yuo2hPl2y2Pozypc2mWhkwFopbUej6WQ==",
+  "dgSpecHash": "s9aCNukFNM9AQ//pEAUxw8OKLYQzuJmaCEQvieFD3Jlgzpo+eCS/so/3qRbmi0uC/3Vc/06VVyIxQ5oB3p12rA==",
   "success": true,
   "projectFilePath": "C:\\Users\\TimKu\\OneDrive\\Bureaublad\\Semester 2.3\\Maatwerk files\\Individueel\\Main Project\\LOLComp\\LOLComp\\LOLComp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\TimKu\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",
@@ -14,6 +15,7 @@
     "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.codeanalysis.csharp.workspaces\\3.3.1\\microsoft.codeanalysis.csharp.workspaces.3.3.1.nupkg.sha512",
     "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.codeanalysis.razor\\3.1.0\\microsoft.codeanalysis.razor.3.1.0.nupkg.sha512",
     "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\3.3.1\\microsoft.codeanalysis.workspaces.common.3.3.1.nupkg.sha512",
+    "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.0\\microsoft.extensions.dependencyinjection.3.1.0.nupkg.sha512",
     "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.0\\microsoft.extensions.dependencyinjection.abstractions.3.1.0.nupkg.sha512",
     "C:\\Users\\TimKu\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
@@ -85,7 +87,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
+    "C:\\Users\\TimKu\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",

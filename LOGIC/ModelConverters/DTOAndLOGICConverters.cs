@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.APIDto_s;
 using LOGIC.Models;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace LOGIC.ModelConverters
         private Summoner Summoner { get; set; }
         private SummonerDTO SummonerDTO { get; set; }
         private Match Match { get; set; }
-        private MatchDTO MatchDTO { get; set; }
+        private MatchWithoutStatsDto MatchDTO { get; set; }
 
         public User ConvertToUser(UserDTO userDTO)
         {
@@ -75,26 +76,26 @@ namespace LOGIC.ModelConverters
             return SummonerDTO;
         }
 
-        public Match ConvertToMatch(MatchDTO matchDTO)
-        {
-            Match = new Match(matchDTO.gameId, matchDTO.role, matchDTO.season, matchDTO.platformId, matchDTO.champion, matchDTO.queue, matchDTO.lane, matchDTO.timestamp);
-            return Match;
-        }
+        //public Match ConvertToMatch(MatchWithoutStatsDto matchDTO)
+        //{
+        //    Match = new Match(matchDTO.gameId, matchDTO.role, matchDTO.season, matchDTO.platformId, matchDTO.champion, matchDTO.queue, matchDTO.lane, matchDTO.timestamp);
+        //    return Match;
+        //}
 
-        public MatchDTO ConvertToMatchDTO(Match match)
-        {
-            MatchDTO = new MatchDTO()
-            {
-                gameId = match.GameId,
-                role = match.Role,
-                season = match.Season,
-                platformId = match.PlatformID,
-                champion = match.Champion,
-                queue = match.Queue,
-                lane = match.Lane,
-                timestamp = match.Timestamp
-            };
-            return MatchDTO;
-        }
+        //public MatchWithoutStatsDto ConvertToMatchDTO(Match match)
+        //{
+        //    MatchDTO = new MatchWithoutStatsDto()
+        //    {
+        //        gameId = match.GameId,
+        //        role = match.Role,
+        //        season = match.Season,
+        //        platformId = match.PlatformID,
+        //        champion = match.Champion,
+        //        queue = match.Queue,
+        //        lane = match.Lane,
+        //        timestamp = match.Timestamp
+        //    };
+        //    return MatchDTO;
+        //}
     }
 }
