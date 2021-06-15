@@ -2,6 +2,7 @@
 using DAL_Factory;
 using LOGIC.ModelConverters;
 using LOGIC.Models;
+using LOGIC.Models.APIModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,6 +27,7 @@ namespace LOGIC.Collections
             foreach (var matchDTO in matchDTOs)
             {
                 var match = _mapper.Map<Match>(matchDTO);
+                
                 matchList.Add(match);
             }
             return matchList;
