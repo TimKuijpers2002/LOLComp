@@ -34,13 +34,22 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Region)
         </dd>
-        <partial>
-            @{ 
-                Html.RenderPartial("Matches", Model.matchViewModels);
-            }
-        </partial>
+</div>
+@{
+    var differentChampions = Model.matchViewModels.Select(x => x.yourChampion).Distinct().ToList();
+    foreach (var champion in differentChampions)
+    {
+        @Html.ActionLink(" Sort by:" + champion + " |", "Profile", "LOL", new { summonerName = Model.Name, region = Model.Region, championId = champion });
+    }
+}
+<div>
+    <partial>
+        @{
+            Html.RenderPartial("Matches", Model.matchViewModels);
+        }
+    </partial>
     </dl>
 </div>
 <div>
-    <a asp-action="Index">Back</a>
+    <a asp-action="Index">Back</a>@Html.ActionLink("Remove filters", "Profile", "LOL", new { summonerName = Model.Name, region = Model.Region})
 </div>

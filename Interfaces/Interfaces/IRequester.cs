@@ -11,7 +11,7 @@ namespace Interfaces.Interfaces
     {
         Task<List<SummonerDTO>> RequestSummonerData(string summonerName);
         Task<SummonerDTO> RequestSummonerDataWithRegion(string summonerName, string region);
-        Task<List<MatchDto>> RequestSummonerMatchHistory(string region, string summonerAccountID);
+        Task<List<MatchDto>> RequestSummonerMatchHistory(string region, string summonerAccountID, int index);
         Task<MatchDto> RequestMatchStats(string region, long matchID);
     }
 }

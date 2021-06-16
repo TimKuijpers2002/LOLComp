@@ -102,13 +102,13 @@ namespace DAL.APIContext
 
         }
 
-        public async Task<List<MatchDto>> RequestSummonerMatchHistory(string region, string summonerAccountID)
+        public async Task<List<MatchDto>> RequestSummonerMatchHistory(string region, string summonerAccountID, int index)
         {
             var apiKey = apiKeyHandler.UseRiotKey();
             var matchListNoStats = new List<MatchWithoutStatsDto>();
             var matchListStats = new List<MatchDto>();
 
-            var URL = "https://" + region + ".api.riotgames.com/lol/match/v4/matchlists/by-account/" + summonerAccountID+ "?endIndex=10&api_key=" + apiKey;
+            var URL = "https://" + region + ".api.riotgames.com/lol/match/v4/matchlists/by-account/" + summonerAccountID+ "?endIndex=" + index + "&api_key=" + apiKey;
 
             using var client = new HttpClient();
             var response = await client.GetAsync(URL);
@@ -123,9 +123,11 @@ namespace DAL.APIContext
             
             if (matchListNoStats.Any())
             {
-                foreach(var match in matchListNoStats)
+                foreach(var matchDto in matchListNoStats)
                 {
-                    matchListStats.Add(await RequestMatchStats(region, match.gameId));
+                    var match = await RequestMatchStats(region, matchDto.gameId);
+                    match.yourChampion = matchDto.champion;
+                    matchListStats.Add(match);
                 }
                 return matchListStats;
             }

@@ -8,7 +8,8 @@ namespace LOGIC.Models
 {
     public class Match
     {
-        public List<ParticipantIdentity> players { get; private set; }
+        public int yourChampion { get; private set; }
+        public List<ParticipantIdentity> participantIdentities { get; private set; }
         public string gameType { get; private set; }
         public long gameDuration { get; private set; }
         public List<TeamStats> teams { get; private set; }

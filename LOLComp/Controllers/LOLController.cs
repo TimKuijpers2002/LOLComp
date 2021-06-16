@@ -54,13 +54,13 @@ namespace LOLComp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Matches(SummonerViewModel summonerViewModel)
+        public async Task<IActionResult> Matches(SummonerViewModel summonerViewModel, int championId)
         {
             var matchViewModels = new List<MatchViewModel>();
 
             try
             {
-                var matchList = await matchCollection.GetMatchHistory(summonerViewModel.Name, summonerViewModel.Region);
+                var matchList = await matchCollection.GetMatchHistory(summonerViewModel.Name, summonerViewModel.Region, championId);
                 foreach (var match in matchList)
                 {
                     matchViewModels.Add(_mapper.Map<MatchViewModel>(match));
@@ -75,7 +75,7 @@ namespace LOLComp.Controllers
             return View(matchViewModels);
         }
 
-        public async Task<IActionResult> Profile(string summonerName, string region)
+        public async Task<IActionResult> Profile(string summonerName, string region, int championId = -1)
         {
             SummonerViewModel summonerViewModel = new SummonerViewModel();
             if (summonerName != null)
@@ -83,7 +83,7 @@ namespace LOLComp.Controllers
                 try
                 {
                     var summoner = await summonerCollection.FindSummonerByNameAndRegion(summonerName, region);
-                    var matches = await matchCollection.GetMatchHistory(summoner.AccountID, region);
+                    var matches = await matchCollection.GetMatchHistory(summoner.AccountID, region, championId);
 
                     summonerViewModel = converter.ConvertToSummonerViewModel(summoner);
                     foreach(var match in matches)

@@ -6,6 +6,7 @@ namespace DTO.APIDto_s
 {
     public class MatchDto
     {
+        public int yourChampion { get; set; }
         public long gameId { get; set; }
         public List<ParticipantIdentityDto> participantIdentities { get; set; }
         public int queueId { get; set; }
