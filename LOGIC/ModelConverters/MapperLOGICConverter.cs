@@ -16,6 +16,7 @@ namespace LOGIC.ModelConverters
                 .BeforeMap((src, dest) => src.gameDuration /= 60);
 
             CreateMap<ParticipantStatsDto, ParticipantStats>();
+            CreateMap<ParticipantStats, ComparedMatchStats>();
             CreateMap<ParticipantDto, Participant>();
             CreateMap<MasteryDto, Mastery>();
             CreateMap<RuneDto, Models.APIModels.Rune>();

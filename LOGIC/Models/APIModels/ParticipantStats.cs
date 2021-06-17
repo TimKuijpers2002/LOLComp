@@ -69,5 +69,6 @@ namespace LOGIC.Models.APIModels
         public int item3 { get; private set; }
         public int item6 { get; private set; }
         public int item5 { get; private set; }
+        public double kda { get; private set; }
     }
 }
