@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "..\Interfaces
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "..\DTO\DTO.csproj", "{2EAFBC65-B2C7-40F0-BC37-49EDF109BECC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestLLOLCompLOGIC", "..\UnitTestLLOLCompLOGIC\UnitTestLLOLCompLOGIC.csproj", "{3280ED32-AAE2-4667-8280-5555F673F54F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{2EAFBC65-B2C7-40F0-BC37-49EDF109BECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EAFBC65-B2C7-40F0-BC37-49EDF109BECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EAFBC65-B2C7-40F0-BC37-49EDF109BECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3280ED32-AAE2-4667-8280-5555F673F54F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3280ED32-AAE2-4667-8280-5555F673F54F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3280ED32-AAE2-4667-8280-5555F673F54F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3280ED32-AAE2-4667-8280-5555F673F54F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

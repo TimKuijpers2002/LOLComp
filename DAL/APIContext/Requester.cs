@@ -151,10 +151,28 @@ namespace DAL.APIContext
             {
                 string s = await response.Content.ReadAsStringAsync();
 
-                var jsonDoc = JsonDocument.Parse(s);
                 match = JsonSerializer.Deserialize<MatchDto>(await response.Content.ReadAsStringAsync());
             }
             return match;
+        }
+
+        //Not working yet
+        public async Task<ChampionDto> RequestChampions(int championId)
+        {
+            var apiKey = apiKeyHandler.UseRiotKey();
+            var champions = new List<ChampionDto>();
+            string version = "11.12.1";
+
+            var URL = "http://ddragon.leagueoflegends.com/cdn/" + version + "/data/en_GB/champion.json";
+
+            using var client = new HttpClient();
+            var response = await client.GetAsync(URL);
+            if (response.IsSuccessStatusCode)
+            {
+                var championElement = JsonSerializer.Deserialize<RootChampionDto>(await response.Content.ReadAsStringAsync());
+                var test = championElement;
+            }
+            return champions.First();
         }
     }
 }

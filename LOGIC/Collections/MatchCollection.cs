@@ -54,7 +54,7 @@ namespace LOGIC.Collections
             {
                 var match = _mapper.Map<Match>(matchDTO);
                 var stats = match.participants.Where(part => part.championId == championId).ToList().First().stats;
-
+                //var champions = Factory.RequesterConnectionHandler.RequestChampions(championId);
                 GiveParticipantsKDA(match.participants);
                 matchList.Add(match);
             }
@@ -65,7 +65,7 @@ namespace LOGIC.Collections
 
         //FACTOR CALCULATIONS-----------------------------------------------------------------------*
 
-        public ComparedMatchStats GetFactorForDiffInMatches(ParticipantStats statsOldest, ParticipantStats statsNewest)
+        public ComparedMatchStats GetDeltasForDiffInMatches(ParticipantStats statsOldest, ParticipantStats statsNewest)
         {
             ComparedMatchStats matchFactors = new ComparedMatchStats();
             List<ParticipantStats> stats = new List<ParticipantStats>(); stats.Add(statsNewest); stats.Add(statsOldest);
@@ -78,14 +78,14 @@ namespace LOGIC.Collections
                     var valueStatsOld = stringifyValue(prop.GetValue(statsOldest));
                     var valueStatsNew = stringifyValue(statsNewest.GetType().GetProperty(prop.Name).GetValue(statsNewest));
 
-                    matchFactors.GetType().GetProperty(prop.Name).SetValue(matchFactors, CalculateFactor(valueStatsOld, valueStatsNew));
+                    matchFactors.GetType().GetProperty(prop.Name).SetValue(matchFactors, CalculateDelta(valueStatsOld, valueStatsNew));
                 }
                 else if (prop.PropertyType == typeof(long) && matchFactors.GetType().GetProperty(prop.Name) != null)
                 {
                     var valueStatsOld = stringifyValue(prop.GetValue(statsOldest));
                     var valueStatsNew = stringifyValue(statsNewest.GetType().GetProperty(prop.Name).GetValue(statsNewest));
 
-                    matchFactors.GetType().GetProperty(prop.Name).SetValue(matchFactors, CalculateFactor(valueStatsOld, valueStatsNew));
+                    matchFactors.GetType().GetProperty(prop.Name).SetValue(matchFactors, CalculateDelta(valueStatsOld, valueStatsNew));
                 }
             }
             return matchFactors;
@@ -96,11 +96,15 @@ namespace LOGIC.Collections
             return string.Format("{0}\r\n", value);
         }
 
-        public double CalculateFactor(string valueOldStats, string valueNewStats)
+        public double CalculateDelta(string valueOldStats, string valueNewStats)
         {
             var valueOfOldProp = double.Parse(valueOldStats);
             var valueOfNewProp = double.Parse(valueNewStats);
-            if (valueOfOldProp == 0)
+            if (valueOfOldProp == 0 && valueOfNewProp == 0)
+            {
+                return 0;
+            }
+            else if (valueOfOldProp == 0)
             {
                 return valueOfNewProp;
             }
@@ -110,7 +114,7 @@ namespace LOGIC.Collections
             }
             else
             {
-                return valueOfOldProp / valueOfNewProp;
+                return valueOfNewProp - valueOfOldProp;
             }                  
         }
 
